@@ -37,7 +37,7 @@
   "socket": false,
  "url": "https://github.com/KaraKode/PolarisV3",
   "manifest": "https://github.com/KaraKode/PolarisV3/releases/latest/download/system.json",
-  "download": "https://github.com/KaraKode/PolarisV3/archive/refs/tags/R01.zip",
+  "download": "https://github.com/KaraKode/PolarisV3/archive/refs/tags/R02.zip",
   "background": "systems/PolarisV3/assets/anvil-impact.png",
   "grid": {
     "distance": 1,
