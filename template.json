@@ -39,7 +39,7 @@
         }
       },
       "abilities": {
-        "For": {
+        "FOR": {
           "value": 10,
           "min":3,
           "max":20
@@ -49,7 +49,7 @@
           "min":3,
           "max":20
         },
-        "COD": {
+        "COO": {
           "value": 10,
           "min":3,
           "max":20
@@ -117,7 +117,7 @@
       "templates": ["base"],
       "quantity": 1,
       "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "formula": "d20 + @CON.mod + ceil(@lvl / 2)"
     },
     "feature": {
       "templates": ["base"]
