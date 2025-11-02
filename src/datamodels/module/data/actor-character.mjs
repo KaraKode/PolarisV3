@@ -13,6 +13,11 @@ export default class PolarisCharacter extends PolarisActorBase {
       }),
     });
 
+    schema.secondary = new fields.SchemaField(Object.keys(CONFIG.Polaris.secondary).reduce(obj,secondary) =>{
+      obj[secondary] =new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial:10,min:3})
+      })
+    })
     // Iterate over ability names and create a new SchemaField for each.
     schema.abilities = new fields.SchemaField(Object.keys(CONFIG.Polaris.abilities).reduce((obj, ability) => {
       obj[ability] = new fields.SchemaField({
