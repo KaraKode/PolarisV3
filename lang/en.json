@@ -1,12 +1,22 @@
 {
   "Polaris": {
     "Ability": {
-      "Str": { "long": "Strength", "abbr": "str" },
-      "Con": { "long": "Constitution", "abbr": "con" },
-      "Dex": { "long": "Dexterity", "abbr": "dex" },
-      "Int": { "long": "Intelligence", "abbr": "int" },
-      "Wis": { "long": "Wisdom", "abbr": "wis" },
-      "Cha": { "long": "Charisma", "abbr": "cha" }
+      "FOR": { "long": "FORCE", "abbr": "FOR" },
+      "CON": { "long": "CONSTITUTION", "abbr": "CON" },
+      "COO": { "long": "COORDINATION", "abbr": "COO" },
+      "ADA": { "long": "ADAPTATION", "abbr": "ADA" },
+      "PER": { "long": "PERCEPTION", "abbr": "PER" },
+      "INT": { "long": "Inteligence", "abbr": "INT" },
+      "VOL": { "long": "VOLONTE", "abbr": "VOL" },
+      "PRE": { "long": "PRESENCE", "abbr": "PRE" }      
+    },
+    "Secondary": {
+      "REA": { "long": "REACTION", "abbr": "REA" },
+      "MDCC": { "long": "MOD DOMMAGE CAC", "abbr": "MDCC" },
+      "RAC": { "long": "RESISTANCE AU CHOC", "abbr": "RAC" },
+      "RAD": { "long": "RESISTANCE AU DOMMAGES", "abbr": "RAD" },
+      "RN": { "long": "RESISTANCE NATURELLE", "abbr": "RN" },
+      "SOU": { "long": "SOUFFLE", "abbr": "SOU" }   
     },
     "SheetLabels": {
       "Actor": "Polaris Actor Sheet",

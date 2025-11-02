@@ -2,6 +2,21 @@
   "Actor": {
     "types": ["character", "npc"],
     "templates": {
+      "physik":{
+        "size":1,
+        "weight":2,
+        "skin":"",
+        "eyes":"",
+        "hair":"",
+        "archetype":"",
+        "genetik":"",
+        "age":"",
+        "sexe":"",
+        "originGeo":"",
+        "originSoc":"",
+        "form":"",
+        "school":""
+      },
       "base": {
         "health": {
           "value": 10,
@@ -24,22 +39,64 @@
         }
       },
       "abilities": {
-        "str": {
+        "For": {
+          "value": 10,
+          "min":3,
+          "max":20
+        },
+        "CON": {
+          "value": 10,
+          "min":3,
+          "max":20
+        },
+        "COD": {
+          "value": 10,
+          "min":3,
+          "max":20
+        },
+        "ADA": {
+          "value": 10,
+          "min":3,
+          "max":20
+        },
+        "PER": {
+          "value": 10,
+          "min":3,
+          "max":20
+        },
+        "INT": {
+          "value": 10,
+          "min":3,
+          "max":20
+        },
+        "VOL": {
+          "value": 10,
+          "min":3,
+          "max":20
+        },
+        "PRE": {
+          "value": 10,
+          "min":3,
+          "max":20
+        }
+      },
+      "Secondary": {
+        "REA": {
           "value": 10
         },
-        "dex": {
+        "MDCC": {
           "value": 10
         },
-        "con": {
+        "RAC": {
           "value": 10
         },
-        "int": {
+        "RAD": {
           "value": 10
         },
-        "wis": {
+        "RN": {
           "value": 10
         },
-        "cha": {
+        "SOU": {
           "value": 10
         }
       }
