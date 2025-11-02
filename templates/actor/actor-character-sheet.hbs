@@ -87,8 +87,8 @@
             {{#each system.secondary as |secondary key|}}
             <div class="secondary flexrow flex-group-center">
               <label for="system.secondary.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@secondary.{{key}}.mod" data-label="{{localize (lookup @root.config.secondary key)}}">{{localize (lookup @root.config.secondary key)}}</label>
-              <input type="text" name="system.secondary.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="d20+@secondary.{{key}}.mod" data-label="{{localize (lookup @root.config.secondary key)}}">{{numberFormat secondary.mod decimals=0 sign=true}}</span>
+              <input type="text" name="system.secondary.{{key}}.value" value="{{secondary.value}}" data-dtype="Number"/>
+              <span class="secondary-mod rollable" data-roll="d20+@secondary.{{key}}.mod" data-label="{{localize (lookup @root.config.secondary key)}}">{{numberFormat secondary.mod decimals=0 sign=true}}</span>
             </div>
             {{/each}}
           </div>
