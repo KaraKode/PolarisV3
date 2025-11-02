@@ -1,6 +1,6 @@
-import BoilerplateItemBase from "./base-item.mjs";
+import PolarisItemBase from "./base-item.mjs";
 
-export default class BoilerplateSpell extends BoilerplateItemBase {
+export default class PolarisSpell extends PolarisItemBase {
 
   static defineSchema() {
     const fields = foundry.data.fields;

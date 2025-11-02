@@ -1,6 +1,6 @@
-import BoilerplateActorBase from "./base-actor.mjs";
+import PolarisActorBase from "./base-actor.mjs";
 
-export default class BoilerplateNPC extends BoilerplateActorBase {
+export default class PolarisNPC extends PolarisActorBase {
 
   static defineSchema() {
     const fields = foundry.data.fields;

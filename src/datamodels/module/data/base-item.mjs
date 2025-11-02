@@ -1,6 +1,6 @@
-import BoilerplateDataModel from "./base-model.mjs";
+import PolarisDataModel from "./base-model.mjs";
 
-export default class BoilerplateItemBase extends BoilerplateDataModel {
+export default class PolarisItemBase extends PolarisDataModel {
 
   static defineSchema() {
     const fields = foundry.data.fields;

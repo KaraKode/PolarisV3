@@ -1,11 +1,11 @@
 {
-  "name": "boilerplate",
+  "name": "Polaris",
   "version": "2.0.0",
-  "description": "CSS compiler for the Boilerplate system",
+  "description": "CSS compiler for the Polaris system",
   "scripts": {
-    "build": "sass src/scss/boilerplate.scss css/boilerplate.css --style=expanded --no-source-map",
-    "watch": "sass src/scss/boilerplate.scss css/boilerplate.css --style=expanded --source-map --watch",
-    "generate": "node src/generate-boilerplate-system.mjs"
+    "build": "sass src/scss/Polaris.scss css/Polaris.css --style=expanded --no-source-map",
+    "watch": "sass src/scss/Polaris.scss css/Polaris.css --style=expanded --source-map --watch",
+    "generate": "node src/generate-Polaris-system.mjs"
   },
   "browserslist": [
     "last 3 versions"

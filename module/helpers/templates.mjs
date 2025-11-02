@@ -6,11 +6,11 @@
 export const preloadHandlebarsTemplates = async function () {
   return loadTemplates([
     // Actor partials.
-    'systems/boilerplate/templates/actor/parts/actor-features.hbs',
-    'systems/boilerplate/templates/actor/parts/actor-items.hbs',
-    'systems/boilerplate/templates/actor/parts/actor-spells.hbs',
-    'systems/boilerplate/templates/actor/parts/actor-effects.hbs',
+    'systems/Polaris/templates/actor/parts/actor-features.hbs',
+    'systems/Polaris/templates/actor/parts/actor-items.hbs',
+    'systems/Polaris/templates/actor/parts/actor-spells.hbs',
+    'systems/Polaris/templates/actor/parts/actor-effects.hbs',
     // Item partials
-    'systems/boilerplate/templates/item/parts/item-effects.hbs',
+    'systems/Polaris/templates/item/parts/item-effects.hbs',
   ]);
 };

@@ -1,23 +1,23 @@
-export const BOILERPLATE = {};
+export const Polaris = {};
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-BOILERPLATE.abilities = {
-  str: 'BOILERPLATE.Ability.Str.long',
-  dex: 'BOILERPLATE.Ability.Dex.long',
-  con: 'BOILERPLATE.Ability.Con.long',
-  int: 'BOILERPLATE.Ability.Int.long',
-  wis: 'BOILERPLATE.Ability.Wis.long',
-  cha: 'BOILERPLATE.Ability.Cha.long',
+Polaris.abilities = {
+  str: 'Polaris.Ability.Str.long',
+  dex: 'Polaris.Ability.Dex.long',
+  con: 'Polaris.Ability.Con.long',
+  int: 'Polaris.Ability.Int.long',
+  wis: 'Polaris.Ability.Wis.long',
+  cha: 'Polaris.Ability.Cha.long',
 };
 
-BOILERPLATE.abilityAbbreviations = {
-  str: 'BOILERPLATE.Ability.Str.abbr',
-  dex: 'BOILERPLATE.Ability.Dex.abbr',
-  con: 'BOILERPLATE.Ability.Con.abbr',
-  int: 'BOILERPLATE.Ability.Int.abbr',
-  wis: 'BOILERPLATE.Ability.Wis.abbr',
-  cha: 'BOILERPLATE.Ability.Cha.abbr',
+Polaris.abilityAbbreviations = {
+  str: 'Polaris.Ability.Str.abbr',
+  dex: 'Polaris.Ability.Dex.abbr',
+  con: 'Polaris.Ability.Con.abbr',
+  int: 'Polaris.Ability.Int.abbr',
+  wis: 'Polaris.Ability.Wis.abbr',
+  cha: 'Polaris.Ability.Cha.abbr',
 };

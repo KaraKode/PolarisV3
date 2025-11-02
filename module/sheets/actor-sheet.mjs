@@ -7,11 +7,11 @@ import {
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class BoilerplateActorSheet extends ActorSheet {
+export class PolarisActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['boilerplate', 'sheet', 'actor'],
+      classes: ['Polaris', 'sheet', 'actor'],
       width: 600,
       height: 600,
       tabs: [
@@ -26,7 +26,7 @@ export class BoilerplateActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/boilerplate/templates/actor/actor-${this.actor.type}-sheet.hbs`;
+    return `systems/Polaris/templates/actor/actor-${this.actor.type}-sheet.hbs`;
   }
 
   /* -------------------------------------------- */
@@ -46,8 +46,8 @@ export class BoilerplateActorSheet extends ActorSheet {
     context.system = actorData.system;
     context.flags = actorData.flags;
 
-    // Adding a pointer to CONFIG.BOILERPLATE
-    context.config = CONFIG.BOILERPLATE;
+    // Adding a pointer to CONFIG.Polaris
+    context.config = CONFIG.Polaris;
 
     // Prepare character data and items.
     if (actorData.type == 'character') {

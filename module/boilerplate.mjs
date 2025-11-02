@@ -1,12 +1,12 @@
 // Import document classes.
-import { BoilerplateActor } from './documents/actor.mjs';
-import { BoilerplateItem } from './documents/item.mjs';
+import { PolarisActor } from './documents/actor.mjs';
+import { PolarisItem } from './documents/item.mjs';
 // Import sheet classes.
-import { BoilerplateActorSheet } from './sheets/actor-sheet.mjs';
-import { BoilerplateItemSheet } from './sheets/item-sheet.mjs';
+import { PolarisActorSheet } from './sheets/actor-sheet.mjs';
+import { PolarisItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
-import { BOILERPLATE } from './helpers/config.mjs';
+import { Polaris } from './helpers/config.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -15,14 +15,14 @@ import { BOILERPLATE } from './helpers/config.mjs';
 Hooks.once('init', function () {
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
-  game.boilerplate = {
-    BoilerplateActor,
-    BoilerplateItem,
+  game.Polaris = {
+    PolarisActor,
+    PolarisItem,
     rollItemMacro,
   };
 
   // Add custom constants for configuration.
-  CONFIG.BOILERPLATE = BOILERPLATE;
+  CONFIG.Polaris = Polaris;
 
   /**
    * Set an initiative formula for the system
@@ -34,8 +34,8 @@ Hooks.once('init', function () {
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = BoilerplateActor;
-  CONFIG.Item.documentClass = BoilerplateItem;
+  CONFIG.Actor.documentClass = PolarisActor;
+  CONFIG.Item.documentClass = PolarisItem;
 
   // Active Effects are never copied to the Actor,
   // but will still apply to the Actor from within the Item
@@ -44,14 +44,14 @@ Hooks.once('init', function () {
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('boilerplate', BoilerplateActorSheet, {
+  Actors.registerSheet('Polaris', PolarisActorSheet, {
     makeDefault: true,
-    label: 'BOILERPLATE.SheetLabels.Actor',
+    label: 'Polaris.SheetLabels.Actor',
   });
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('boilerplate', BoilerplateItemSheet, {
+  Items.registerSheet('Polaris', PolarisItemSheet, {
     makeDefault: true,
-    label: 'BOILERPLATE.SheetLabels.Item',
+    label: 'Polaris.SheetLabels.Item',
   });
 
   // Preload Handlebars templates.
@@ -99,7 +99,7 @@ async function createItemMacro(data, slot) {
   const item = await Item.fromDropData(data);
 
   // Create the macro command using the uuid.
-  const command = `game.boilerplate.rollItemMacro("${data.uuid}");`;
+  const command = `game.Polaris.rollItemMacro("${data.uuid}");`;
   let macro = game.macros.find(
     (m) => m.name === item.name && m.command === command
   );
@@ -109,7 +109,7 @@ async function createItemMacro(data, slot) {
       type: 'script',
       img: item.img,
       command: command,
-      flags: { 'boilerplate.itemMacro': true },
+      flags: { 'Polaris.itemMacro': true },
     });
   }
   game.user.assignHotbarMacro(macro, slot);
