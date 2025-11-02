@@ -23,8 +23,8 @@
     "minimum": 12,
     "verified": "12"
   },
-  "esmodules": ["module/Polaris.mjs"],
-  "styles": ["css/Polaris.css"],
+  "esmodules": ["module/polaris.mjs"],
+  "styles": ["css/polaris.css"],
   "languages": [
     {
       "lang": "en",
