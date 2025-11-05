@@ -35,7 +35,7 @@
   "socket": false,
  "url": "https://github.com/KaraKode/PolarisV3",
   "manifest": "https://github.com/KaraKode/PolarisV3/releases/latest/download/system.json",
-  "download": "https://github.com/KaraKode/PolarisV3/archive/refs/tags/R07.zip",
+  "download": "https://github.com/KaraKode/PolarisV3/archive/refs/tags/R08.zip",
   "grid": {
     "distance": 1,
     "units": "m",
