@@ -10,6 +10,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/Polaris/templates/actor/parts/actor-items.hbs',
     'systems/Polaris/templates/actor/parts/actor-spells.hbs',
     'systems/Polaris/templates/actor/parts/actor-effects.hbs',
+    'systems/Polaris/templates/actor/parts/actor-recap.hbs',
     // Item partials
     'systems/Polaris/templates/item/parts/item-effects.hbs',
   ]);
