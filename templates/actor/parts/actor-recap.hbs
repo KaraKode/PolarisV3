@@ -1,0 +1,126 @@
+<section class="polaris panel grid grid-1col">
+
+  {{!-- ================== INITIATIVE (0–25) ================== --}}
+  <div class="pane initiative">
+    <header class="list-header flexrow flex-between flex-center">
+      <h3 class="title">INITIATIVE</h3>
+      <div class="muted">Niveau de départ = Réaction</div>
+    </header>
+
+    {{!-- 13 colonnes x 2 rangées (0–12 / 13–25) --}}
+    <div class="ini-grid">
+      {{!-- Ligne 1 : 0 → 12 --}}
+      {{#each (range 0 13) as |n|}}
+        <div class="ini-cell">
+          <div class="ini-label">{{n}}</div>
+          <input type="text" name="system.combat.initiative.track.r1.{{n}}" value="{{lookup system.combat.initiative.track.r1 n}}" />
+        </div>
+      {{/each}}
+
+      {{!-- Ligne 2 : 13 → 25 --}}
+      {{#each (range 13 26) as |n|}}
+        <div class="ini-cell">
+          <div class="ini-label">{{n}}</div>
+          <input type="text" name="system.combat.initiative.track.r2.{{n}}" value="{{lookup system.combat.initiative.track.r2 n}}" />
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  {{!-- ===== TABLE DES MARGES DE RÉUSSITE ET D’ÉCHEC ===== --}}
+  <div class="pane marges">
+    <header class="list-header">
+      <h3 class="title">TABLE DES MARGES DE RÉUSSITE ET D’ÉCHEC</h3>
+    </header>
+
+    <table class="polaris-table polaris-marges">
+      <thead>
+        <tr>
+          <th>Marge</th>
+          <th>1–2</th>
+          <th>3–4</th>
+          <th>5–6</th>
+          <th>7–9</th>
+          <th>10–12</th>
+          <th>13–14</th>
+          <th>15–19</th>
+          <th>20–24</th>
+          <th>25–34</th>
+          <th>35+</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Modificateur</th>
+          <td>±0</td>
+          <td>±1</td>
+          <td>±2</td>
+          <td>±3</td>
+          <td>±4</td>
+          <td>±5</td>
+          <td>±6</td>
+          <td>±7</td>
+          <td>±8</td>
+          <td>±9</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {{!-- =========== ÉTAT DE SANTÉ & PROTECTIONS. =========== --}}
+  <div class="pane sante">
+    <header class="list-header">
+      <h3 class="title">ÉTAT DE SANTÉ & PROTECTIONS.</h3>
+    </header>
+
+    <div class="grid grid-2col">
+      <div class="bloc">
+        <table class="polaris-table polaris-sante">
+          <thead>
+            <tr><th colspan="10">Localisation (contact)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1–4</td>
+              <td>5–10</td>
+              <td>11–13</td>
+              <td>14–16</td>
+              <td>17–18</td>
+              <td>19–20</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="polaris-table polaris-sante" style="margin-top:8px;">
+          <thead>
+            <tr><th colspan="10">Localisation (distance)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1–2</td>
+              <td>3–8</td>
+              <td>9–11</td>
+              <td>12–14</td>
+              <td>15–17</td>
+              <td>18–19</td>
+              <td>20</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bloc">
+        <label class="resource-label">Blessures & séquelles.</label>
+        <textarea name="system.health.injuries" rows="8">{{system.health.injuries}}</textarea>
+      </div>
+    </div>
+  </div>
+
+</section>
