@@ -10,7 +10,7 @@
     {{!-- 13 colonnes x 2 rangées (0–12 / 13–25) --}}
     <div class="ini-grid">
       {{!-- Ligne 1 : 0 → 12 --}}
-      {{#each (range 0 13) as |n|}}
+       {{#each initiativeTop as |n|}}
         <div class="ini-cell">
           <div class="ini-label">{{n}}</div>
           <input type="text" name="system.combat.initiative.track.r1.{{n}}" value="{{lookup system.combat.initiative.track.r1 n}}" />
@@ -18,7 +18,7 @@
       {{/each}}
 
       {{!-- Ligne 2 : 13 → 25 --}}
-      {{#each (range 13 26) as |n|}}
+      {{#each initiativeBottom as |n|}}
         <div class="ini-cell">
           <div class="ini-label">{{n}}</div>
           <input type="text" name="system.combat.initiative.track.r2.{{n}}" value="{{lookup system.combat.initiative.track.r2 n}}" />

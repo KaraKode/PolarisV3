@@ -97,6 +97,18 @@ export class PolarisActorSheet extends ActorSheet {
   }
 
   /**
+   * iterative for recap part 
+   */
+async getData(options = {}) {
+  const context = await super.getData(options);
+
+  // 0–12 and 13–25 for the initiative grid
+  context.initiativeTop = Array.from({ length: 13 }, (_, i) => i);        // [0..12]
+  context.initiativeBottom = Array.from({ length: 13 }, (_, i) => i + 13); // [13..25]
+
+  return context;
+}
+  /**
    * Organize and classify Items for Actor sheets.
    *
    * @param {object} context The context object to mutate
