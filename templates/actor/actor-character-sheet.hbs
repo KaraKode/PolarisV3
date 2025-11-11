@@ -39,6 +39,7 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="features">{{localize "Polaris.Tabs.AbilitiesSkills"}}</a>
+    <a class="item" data-tab="physical">{{localize "Polaris.Tabs.Physical"}}</a>
     <a class="item" data-tab="items">{{localize "Polaris.Tabs.Items"}}</a>
     <a class="item" data-tab="spells">{{localize "Polaris.Tabs.Spells"}}</a>
     <a class="item" data-tab="description">{{localize "Polaris.Tabs.Biography"}}</a>
@@ -181,6 +182,11 @@
         <h2 class="section-title">Skills & Features</h2>
         {{> "systems/Polaris/templates/actor/parts/actor-features.hbs"}}
       </section>
+    </div>
+
+    {{!-- Physical Description Tab --}}
+    <div class="tab physical" data-group="primary" data-tab="physical">
+      {{> "systems/Polaris/templates/actor/parts/actor-physical.hbs"}}
     </div>
 
     {{!-- Items Tab --}}

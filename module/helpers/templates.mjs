@@ -7,6 +7,7 @@ export const preloadHandlebarsTemplates = async function () {
   return loadTemplates([
     // Actor partials.
     'systems/Polaris/templates/actor/parts/actor-features.hbs',
+    'systems/Polaris/templates/actor/parts/actor-physical.hbs',
     'systems/Polaris/templates/actor/parts/actor-items.hbs',
     'systems/Polaris/templates/actor/parts/actor-spells.hbs',
     'systems/Polaris/templates/actor/parts/actor-effects.hbs',

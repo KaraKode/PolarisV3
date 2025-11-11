@@ -1,0 +1,125 @@
+{{!-- Physical Description Section --}}
+<div class="physical-description">
+  <h2 class="section-title">{{localize "Polaris.Physical.Title"}}</h2>
+  
+  <div class="physical-grid">
+    {{!-- Basic Physical Attributes --}}
+    <div class="physical-group">
+      <h3 class="group-title">{{localize "Polaris.Physical.BasicAttributes"}}</h3>
+      <div class="physical-fields">
+        <div class="physical-field">
+          <label for="system.physical.height">{{localize "Polaris.Physical.Height"}}</label>
+          <input type="text" name="system.physical.height" value="{{system.physical.height}}" placeholder="e.g., 1.75m"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.weight">{{localize "Polaris.Physical.Weight"}}</label>
+          <input type="text" name="system.physical.weight" value="{{system.physical.weight}}" placeholder="e.g., 70kg"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.bodySize">{{localize "Polaris.Physical.BodySize"}}</label>
+          <input type="text" name="system.physical.bodySize" value="{{system.physical.bodySize}}" placeholder="e.g., Athletic"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.age">{{localize "Polaris.Physical.Age"}}</label>
+          <input type="text" name="system.physical.age" value="{{system.physical.age}}" placeholder="e.g., 25"/>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Appearance --}}
+    <div class="physical-group">
+      <h3 class="group-title">{{localize "Polaris.Physical.Appearance"}}</h3>
+      <div class="physical-fields">
+        <div class="physical-field">
+          <label for="system.physical.skinColor">{{localize "Polaris.Physical.SkinColor"}}</label>
+          <input type="text" name="system.physical.skinColor" value="{{system.physical.skinColor}}" placeholder="e.g., Fair"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.hairColor">{{localize "Polaris.Physical.HairColor"}}</label>
+          <input type="text" name="system.physical.hairColor" value="{{system.physical.hairColor}}" placeholder="e.g., Brown"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.eyeColor">{{localize "Polaris.Physical.EyeColor"}}</label>
+          <input type="text" name="system.physical.eyeColor" value="{{system.physical.eyeColor}}" placeholder="e.g., Blue"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.dominantHand">{{localize "Polaris.Physical.DominantHand"}}</label>
+          <select name="system.physical.dominantHand">
+            <option value="Right" {{#if (eq system.physical.dominantHand "Right")}}selected{{/if}}>{{localize "Polaris.Physical.Right"}}</option>
+            <option value="Left" {{#if (eq system.physical.dominantHand "Left")}}selected{{/if}}>{{localize "Polaris.Physical.Left"}}</option>
+            <option value="Ambidextrous" {{#if (eq system.physical.dominantHand "Ambidextrous")}}selected{{/if}}>{{localize "Polaris.Physical.Ambidextrous"}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Identity & Background --}}
+    <div class="physical-group">
+      <h3 class="group-title">{{localize "Polaris.Physical.Identity"}}</h3>
+      <div class="physical-fields">
+        <div class="physical-field">
+          <label for="system.physical.sex">{{localize "Polaris.Physical.Sex"}}</label>
+          <input type="text" name="system.physical.sex" value="{{system.physical.sex}}" placeholder="e.g., Male/Female"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.fertility">{{localize "Polaris.Physical.Fertility"}}</label>
+          <input type="text" name="system.physical.fertility" value="{{system.physical.fertility}}" placeholder="e.g., Fertile"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.archetype">{{localize "Polaris.Physical.Archetype"}}</label>
+          <input type="text" name="system.physical.archetype" value="{{system.physical.archetype}}" placeholder="e.g., Warrior"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.geneticType">{{localize "Polaris.Physical.GeneticType"}}</label>
+          <input type="text" name="system.physical.geneticType" value="{{system.physical.geneticType}}" placeholder="e.g., Standard"/>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Origins & Education --}}
+    <div class="physical-group">
+      <h3 class="group-title">{{localize "Polaris.Physical.Origins"}}</h3>
+      <div class="physical-fields">
+        <div class="physical-field">
+          <label for="system.physical.geographicalOrigin">{{localize "Polaris.Physical.GeographicalOrigin"}}</label>
+          <input type="text" name="system.physical.geographicalOrigin" value="{{system.physical.geographicalOrigin}}" placeholder="e.g., Northern Region"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.socialOrigin">{{localize "Polaris.Physical.SocialOrigin"}}</label>
+          <input type="text" name="system.physical.socialOrigin" value="{{system.physical.socialOrigin}}" placeholder="e.g., Middle Class"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.schoolBase">{{localize "Polaris.Physical.SchoolBase"}}</label>
+          <input type="text" name="system.physical.schoolBase" value="{{system.physical.schoolBase}}" placeholder="e.g., Academy of Arts"/>
+        </div>
+        
+        <div class="physical-field">
+          <label for="system.physical.highSchool">{{localize "Polaris.Physical.HighSchool"}}</label>
+          <input type="text" name="system.physical.highSchool" value="{{system.physical.highSchool}}" placeholder="e.g., Military Academy"/>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Particular Signs --}}
+    <div class="physical-group full-width">
+      <h3 class="group-title">{{localize "Polaris.Physical.ParticularSigns"}}</h3>
+      <div class="physical-fields">
+        <div class="physical-field-wide">
+          <textarea name="system.physical.particularSigns" rows="4" placeholder="{{localize 'Polaris.Physical.ParticularSignsPlaceholder'}}">{{system.physical.particularSigns}}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

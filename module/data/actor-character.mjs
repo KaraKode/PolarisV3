@@ -40,6 +40,27 @@ export default class PolarisCharacter extends PolarisActorBase {
       mod: new fields.NumberField({ ...requiredInteger, initial: 0 })
     });
 
+    // Physical description
+    schema.physical = new fields.SchemaField({
+      height: new fields.StringField({ required: true, blank: true, initial: "" }),           // Height
+      weight: new fields.StringField({ required: true, blank: true, initial: "" }),           // Weight
+      skinColor: new fields.StringField({ required: true, blank: true, initial: "" }),        // Skin color
+      bodySize: new fields.StringField({ required: true, blank: true, initial: "" }),         // Body size/build
+      hairColor: new fields.StringField({ required: true, blank: true, initial: "" }),        // Hair color
+      eyeColor: new fields.StringField({ required: true, blank: true, initial: "" }),         // Eye color
+      dominantHand: new fields.StringField({ required: true, blank: true, initial: "Right" }), // Dominant hand
+      particularSigns: new fields.StringField({ required: true, blank: true, initial: "" }),  // Particular signs/marks
+      archetype: new fields.StringField({ required: true, blank: true, initial: "" }),        // Archetype
+      geneticType: new fields.StringField({ required: true, blank: true, initial: "" }),      // Genetic type
+      age: new fields.StringField({ required: true, blank: true, initial: "" }),              // Age
+      sex: new fields.StringField({ required: true, blank: true, initial: "" }),              // Sex
+      fertility: new fields.StringField({ required: true, blank: true, initial: "" }),        // Fertility
+      geographicalOrigin: new fields.StringField({ required: true, blank: true, initial: "" }), // Geographical origin
+      socialOrigin: new fields.StringField({ required: true, blank: true, initial: "" }),     // Social origin
+      schoolBase: new fields.StringField({ required: true, blank: true, initial: "" }),       // Base school
+      highSchool: new fields.StringField({ required: true, blank: true, initial: "" })        // High school
+    });
+
     return schema;
   }
 

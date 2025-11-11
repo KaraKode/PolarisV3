@@ -778,6 +778,129 @@
 .Polaris .character .features-section {
   margin-top: 20px;
 }
+.Polaris .character .physical-description {
+  padding: 15px;
+}
+.Polaris .character .physical-description .physical-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 15px;
+}
+@media (max-width: 768px) {
+  .Polaris .character .physical-description .physical-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.Polaris .character .physical-description .physical-grid .physical-group {
+  background: #fff;
+  border: 2px solid #3d5a80;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+.Polaris .character .physical-description .physical-grid .physical-group:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: #4a9eff;
+}
+.Polaris .character .physical-description .physical-grid .physical-group.full-width {
+  grid-column: 1 / -1;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .group-title {
+  color: #1e3a5f;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #d4af37;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (max-width: 480px) {
+  .Polaris .character .physical-description .physical-grid .physical-group .physical-fields {
+    grid-template-columns: 1fr;
+  }
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field {
+  display: flex;
+  flex-direction: column;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field label {
+  color: #2c5f8d;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field input[type=text],
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field select {
+  padding: 8px 12px;
+  border: 2px solid #3d5a80;
+  border-radius: 4px;
+  background: #fff;
+  color: #0f1e2e;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field input[type=text]:focus,
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field select:focus {
+  outline: none;
+  border-color: #4a9eff;
+  box-shadow: 0 0 4px #4a9eff;
+  background: #e8f1f8;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field input[type=text]:hover,
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field select:hover {
+  border-color: #4a9eff;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field input[type=text]::placeholder,
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field select::placeholder {
+  color: rgba(15, 30, 46, 0.4);
+  font-style: italic;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231e3a5f' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+  appearance: none;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field-wide {
+  grid-column: 1 / -1;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field-wide textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #3d5a80;
+  border-radius: 4px;
+  background: #fff;
+  color: #0f1e2e;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.2s;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field-wide textarea:focus {
+  outline: none;
+  border-color: #4a9eff;
+  box-shadow: 0 0 4px #4a9eff;
+  background: #e8f1f8;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field-wide textarea:hover {
+  border-color: #4a9eff;
+}
+.Polaris .character .physical-description .physical-grid .physical-group .physical-fields .physical-field-wide textarea::placeholder {
+  color: rgba(15, 30, 46, 0.4);
+  font-style: italic;
+}
 .Polaris .character .biography .editor {
   border: 2px solid #3d5a80;
   border-radius: 8px;
