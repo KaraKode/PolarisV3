@@ -16,7 +16,7 @@
       "type": "setup"
     }
   ],
-  "version": "0.0.1",
+  "version": "0.1.0",
   "compatibility": {
     "minimum": 12,
     "verified": "12"
@@ -35,7 +35,7 @@
   "socket": false,
  "url": "https://github.com/KaraKode/PolarisV3",
   "manifest": "https://github.com/KaraKode/PolarisV3/releases/latest/download/system.json",
-  "download": "https://github.com/KaraKode/PolarisV3/archive/refs/tags/R09.zip",
+  "download": "https://github.com/KaraKode/PolarisV3/archive/refs/tags/R010.zip",
   "grid": {
     "distance": 1,
     "units": "m",
