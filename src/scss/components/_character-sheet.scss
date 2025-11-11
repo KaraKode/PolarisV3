@@ -1,0 +1,319 @@
+// Character Sheet Polaris Styling
+
+.character {
+  // Header styling
+  .sheet-header {
+    background: linear-gradient(135deg, $c-polaris-primary 0%, $c-polaris-secondary 100%);
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 3px solid $c-polaris-gold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    .profile-img {
+      border: 3px solid $c-polaris-gold;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .header-fields {
+      h1.charname {
+        color: $c-white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 10px;
+
+        input {
+          background: rgba(255, 255, 255, 0.1);
+          border: 2px solid $c-polaris-gold;
+          color: $c-white;
+          border-radius: 4px;
+          padding: 5px 10px;
+          font-size: 28px;
+          font-weight: bold;
+
+          &:focus {
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+            box-shadow: 0 0 8px $c-polaris-gold;
+          }
+        }
+      }
+    }
+
+    .resources {
+      .resource {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid $c-polaris-border;
+        border-radius: 6px;
+        padding: 8px;
+        backdrop-filter: blur(5px);
+
+        .resource-label {
+          color: $c-polaris-light;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 4px;
+        }
+
+        input {
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid $c-polaris-border;
+          border-radius: 4px;
+          padding: 4px 8px;
+          text-align: center;
+          font-weight: bold;
+          color: $c-polaris-dark;
+
+          &:focus {
+            outline: none;
+            border-color: $c-polaris-accent;
+            box-shadow: 0 0 4px $c-polaris-accent;
+          }
+        }
+
+        span {
+          color: $c-polaris-light;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  // Tab navigation
+  .sheet-tabs {
+    background: $c-polaris-dark;
+    border-bottom: 2px solid $c-polaris-gold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    .item {
+      color: $c-polaris-light;
+      border-right: 1px solid $c-polaris-border;
+      padding: 10px 20px;
+      transition: all 0.2s;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+
+      &:hover {
+        background: $c-polaris-secondary;
+        color: $c-white;
+      }
+
+      &.active {
+        background: $c-polaris-primary;
+        color: $c-polaris-gold;
+        border-bottom: 3px solid $c-polaris-gold;
+      }
+    }
+  }
+
+  // Abilities table
+  .abilities-table {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    padding: 15px;
+    background: linear-gradient(to bottom, $c-polaris-light 0%, #fff 100%);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .ability-cell {
+      background: $c-white;
+      border: 2px solid $c-polaris-border;
+      border-radius: 8px;
+      padding: 12px 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-color: $c-polaris-accent;
+      }
+
+      .ability-label {
+        display: block;
+        font-weight: bold;
+        font-size: 11px;
+        text-transform: uppercase;
+        color: $c-polaris-primary;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+
+        &:hover {
+          color: $c-polaris-accent;
+        }
+      }
+
+      input {
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        border: 2px solid $c-polaris-border;
+        border-radius: 4px;
+        padding: 6px;
+        margin-bottom: 6px;
+        background: $c-polaris-light;
+        color: $c-polaris-dark;
+
+        &:focus {
+          outline: none;
+          border-color: $c-polaris-accent;
+          background: $c-white;
+        }
+      }
+
+      .mod {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        color: $c-polaris-secondary;
+        background: $c-polaris-light;
+        border-radius: 4px;
+        padding: 4px;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  // Items and lists styling
+  .items-list {
+    background: $c-white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .items-header {
+      background: linear-gradient(135deg, $c-polaris-primary 0%, $c-polaris-secondary 100%);
+      color: $c-white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 8px;
+
+      .item-name {
+        color: $c-white;
+        font-weight: bold;
+      }
+
+      .item-control {
+        color: $c-polaris-gold;
+        transition: all 0.2s;
+
+        &:hover {
+          color: $c-white;
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .item {
+      border-bottom: 1px solid $c-polaris-light;
+      padding: 8px 4px;
+      transition: background 0.2s;
+
+      &:hover {
+        background: $c-polaris-light;
+      }
+
+      .item-image {
+        border: 2px solid $c-polaris-border;
+        border-radius: 4px;
+        overflow: hidden;
+
+        img {
+          transition: transform 0.2s;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+
+      .item-control {
+        color: $c-polaris-secondary;
+        transition: all 0.2s;
+
+        &:hover {
+          color: $c-polaris-accent;
+          transform: scale(1.2);
+        }
+
+        &.item-delete:hover {
+          color: #c0392b;
+        }
+      }
+    }
+  }
+
+  // Tab content
+  .tab {
+    padding: 15px;
+    background: $c-white;
+
+    &.features {
+      background: linear-gradient(to bottom, $c-polaris-light 0%, $c-white 50%);
+    }
+  }
+
+  // Section titles
+  .section-title {
+    color: $c-polaris-primary;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid $c-polaris-gold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .features-section {
+    margin-top: 20px;
+  }
+
+  // Biography editor
+  .biography {
+    .editor {
+      border: 2px solid $c-polaris-border;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Rollable elements
+.Polaris .rollable {
+  &:hover, &:focus {
+    color: $c-polaris-accent;
+    text-shadow: 0 0 8px $c-polaris-accent;
+    cursor: pointer;
+  }
+}
+
+// Resource bars
+.Polaris .resource-content {
+  input[type="text"],
+  input[type="number"] {
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: $c-polaris-accent;
+    }
+  }
+}
+

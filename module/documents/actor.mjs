@@ -20,91 +20,29 @@ export class PolarisActor extends Actor {
 
   /**
    * @override
-   * Augment the actor source data with additional dynamic data. Typically,
-   * you'll want to handle most of your calculated/derived data in this step.
-   * Data calculated in this step should generally not exist in template.json
-   * (such as ability modifiers rather than ability scores) and should be
+   * Augment the actor source data with additional dynamic data that isn't
+   * handled by the actor's DataModel. Data calculated in this step should be
    * available both inside and outside of character sheets (such as if an actor
    * is queried and has a roll executed directly from it).
    */
   prepareDerivedData() {
     const actorData = this;
-    const systemData = actorData.system;
     const flags = actorData.flags.Polaris || {};
 
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
-    // things organized.
-    this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
-  }
-
-  /**
-   * Prepare Character type specific data
-   */
-  _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
-
-    // Make modifications to data here. For example:
-    const systemData = actorData.system;
-
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
-    }
-  }
-
-  /**
-   * Prepare NPC type specific data.
-   */
-  _prepareNpcData(actorData) {
-    if (actorData.type !== 'npc') return;
-
-    // Make modifications to data here. For example:
-    const systemData = actorData.system;
-    systemData.xp = systemData.cr * systemData.cr * 100;
+    // Most derived data is now handled in the DataModel classes
+    // (see module/data/actor-character.mjs and module/data/actor-npc.mjs)
   }
 
   /**
    * Override getRollData() that's supplied to rolls.
    */
   getRollData() {
-    // Starts off by populating the roll data with a shallow copy of `this.system`
-    const data = { ...this.system };
-
-    // Prepare character roll data.
-    this._getCharacterRollData(data);
-    this._getNpcRollData(data);
-
-    return data;
-  }
-
-  /**
-   * Prepare character roll data.
-   */
-  _getCharacterRollData(data) {
-    if (this.type !== 'character') return;
-
-    // Copy the ability scores to the top level, so that rolls can use
-    // formulas like `@CON.mod + 4`.
-    if (data.abilities) {
-      for (let [k, v] of Object.entries(data.abilities)) {
-        data[k] = foundry.utils.deepClone(v);
-      }
+    // If the actor has a DataModel, use its getRollData method
+    if (this.system.getRollData) {
+      return this.system.getRollData();
     }
 
-    // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
-    }
-  }
-
-  /**
-   * Prepare NPC roll data.
-   */
-  _getNpcRollData(data) {
-    if (this.type !== 'npc') return;
-
-    // Process additional NPC data here.
+    // Fallback: return a shallow copy of the system data
+    return { ...this.system };
   }
 }
