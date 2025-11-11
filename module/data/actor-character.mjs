@@ -16,7 +16,7 @@ export default class PolarisCharacter extends PolarisActorBase {
     // Iterate over ability names and create a new SchemaField for each.
     schema.abilities = new fields.SchemaField(Object.keys(CONFIG.Polaris.abilities).reduce((obj, ability) => {
       obj[ability] = new fields.SchemaField({
-        base: new fields.NumberField({ ...requiredInteger, initial: 10, min: 0, max: 20 }),           // Basic skill
+        base: new fields.NumberField({ ...requiredInteger, initial: 7, min: 0, max: 20 }),           // Basic skill
         genetic: new fields.NumberField({ ...requiredInteger, initial: 0, min: -5, max: 5 }),         // Genetic modifier
         creation: new fields.NumberField({ ...requiredInteger, initial: 0, min: -5, max: 10 }),       // Creation points modifier
         value: new fields.NumberField({ ...requiredInteger, initial: 10, min: 3, max: 20 }),          // Actual skill (calculated)
@@ -33,6 +33,12 @@ export default class PolarisCharacter extends PolarisActorBase {
       });
       return obj;
     }, {}));
+
+    // Luck skill - special attribute
+    schema.luck = new fields.SchemaField({
+      value: new fields.NumberField({ ...requiredInteger, initial: 10, min: 0, max: 20 }),
+      mod: new fields.NumberField({ ...requiredInteger, initial: 0 })
+    });
 
     return schema;
   }
@@ -54,6 +60,11 @@ export default class PolarisCharacter extends PolarisActorBase {
       // Handle ability label localization.
       ability.label = game.i18n.localize(CONFIG.Polaris.abilities[key]) ?? key;
     }
+
+    // Calculate luck modifier
+    if (this.luck) {
+      this.luck.mod = Math.floor((this.luck.value - 10) / 2);
+    }
   }
 
   getRollData() {
@@ -68,6 +79,11 @@ export default class PolarisCharacter extends PolarisActorBase {
     }
 
     data.lvl = this.attributes.level.value;
+
+    // Add luck to roll data
+    if (this.luck) {
+      data.luck = foundry.utils.deepClone(this.luck);
+    }
 
     return data;
   }

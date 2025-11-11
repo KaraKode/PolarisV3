@@ -6,21 +6,48 @@
       "COO": { "long": "COORDINATION", "abbr": "COO" },
       "ADA": { "long": "ADAPTATION", "abbr": "ADA" },
       "PER": { "long": "PERCEPTION", "abbr": "PER" },
-      "INT": { "long": "Inteligence", "abbr": "INT" },
-      "VOL": { "long": "VOLONTE", "abbr": "VOL" },
-      "PRE": { "long": "PRESENCE", "abbr": "PRE" }      
+      "INT": { "long": "INTELLIGENCE", "abbr": "INT" },
+      "VOL": { "long": "WILLPOWER", "abbr": "VOL" },
+      "PRE": { "long": "PRESENCE", "abbr": "PRE" }
+    },
+    "AbilityTable": {
+      "BasicSkill": "Basic Skill",
+      "GeneticModifier": "Genetic Modifier",
+      "CreationPoints": "Creation Points",
+      "ActualSkill": "Actual Skill",
+      "NaturalAptitude": "Natural Aptitude"
+    },
+    "Luck": {
+      "Title": "Luck",
+      "Subtitle": "Special Attribute",
+      "Value": "Luck Value",
+      "Modifier": "Modifier",
+      "Roll": "Roll Luck",
+      "Check": "Luck Check"
     },
     "Secondary": {
       "REA": { "long": "REACTION", "abbr": "REA" },
-      "MDCC": { "long": "MOD DOMMAGE CAC", "abbr": "MDCC" },
-      "RAC": { "long": "RESISTANCE AU CHOC", "abbr": "RAC" },
-      "RAD": { "long": "RESISTANCE AU DOMMAGES", "abbr": "RAD" },
-      "RN": { "long": "RESISTANCE NATURELLE", "abbr": "RN" },
-      "SOU": { "long": "SOUFFLE", "abbr": "SOU" }   
+      "MDCC": { "long": "MELEE DAMAGE MOD", "abbr": "MDCC" },
+      "RAC": { "long": "SHOCK RESISTANCE", "abbr": "RAC" },
+      "RAD": { "long": "DAMAGE RESISTANCE", "abbr": "RAD" },
+      "RN": { "long": "NATURAL RESISTANCE", "abbr": "RN" },
+      "SOU": { "long": "BREATH", "abbr": "SOU" }
     },
     "SheetLabels": {
       "Actor": "Polaris Actor Sheet",
       "Item": "Polaris Item Sheet"
+    },
+    "Tabs": {
+      "AbilitiesSkills": "Abilities & Skills",
+      "Items": "Items",
+      "Spells": "Spells",
+      "Biography": "Biography",
+      "Effects": "Effects"
+    },
+    "Header": {
+      "Health": "Health",
+      "Power": "Power",
+      "Level": "Level"
     },
     "Item": {
       "Spell": {

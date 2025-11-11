@@ -9,7 +9,7 @@
       {{!-- Primary Resources --}}
       <div class="resources grid grid-3col">
         <div class="resource flex-group-center">
-          <label for="system.health.value" class="resource-label">Health</label>
+          <label for="system.health.value" class="resource-label">{{localize "Polaris.Header.Health"}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number"/>
             <span> / </span>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.power.value" class="resource-label">Power</label>
+          <label for="system.power.value" class="resource-label">{{localize "Polaris.Header.Power"}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.power.value" value="{{system.power.value}}" data-dtype="Number"/>
             <span> / </span>
@@ -27,7 +27,7 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.attributes.level.value" class="resource-label">Level</label>
+          <label for="system.attributes.level.value" class="resource-label">{{localize "Polaris.Header.Level"}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.attributes.level.value" value="{{system.attributes.level.value}}" data-dtype="Number"/>
           </div>
@@ -38,11 +38,11 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="features">Abilities & Skills</a>
-    <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="spells">Spells</a>
-    <a class="item" data-tab="description">Biography</a>
-    <a class="item" data-tab="effects">Effects</a>
+    <a class="item" data-tab="features">{{localize "Polaris.Tabs.AbilitiesSkills"}}</a>
+    <a class="item" data-tab="items">{{localize "Polaris.Tabs.Items"}}</a>
+    <a class="item" data-tab="spells">{{localize "Polaris.Tabs.Spells"}}</a>
+    <a class="item" data-tab="description">{{localize "Polaris.Tabs.Biography"}}</a>
+    <a class="item" data-tab="effects">{{localize "Polaris.Tabs.Effects"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -56,7 +56,7 @@
         <table class="ability-table">
           <thead>
             <tr>
-              <th class="ability-header">Ability</th>
+              <th class="ability-header">{{localize "Polaris.Ability"}}</th>
               {{#each system.abilities as |ability key|}}
                 <th class="ability-name rollable"
                     data-roll="d20+@abilities.{{key}}.mod"
@@ -69,7 +69,7 @@
           <tbody>
             {{!-- Row 1: Basic Skill --}}
             <tr class="ability-row">
-              <td class="row-label">Basic Skill</td>
+              <td class="row-label">{{localize "Polaris.AbilityTable.BasicSkill"}}</td>
               {{#each system.abilities as |ability key|}}
                 <td class="ability-value">
                   <input type="number"
@@ -84,7 +84,7 @@
 
             {{!-- Row 2: Genetic Modifier --}}
             <tr class="ability-row">
-              <td class="row-label">Genetic Modifier</td>
+              <td class="row-label">{{localize "Polaris.AbilityTable.GeneticModifier"}}</td>
               {{#each system.abilities as |ability key|}}
                 <td class="ability-value">
                   <input type="number"
@@ -99,7 +99,7 @@
 
             {{!-- Row 3: Creation Points --}}
             <tr class="ability-row">
-              <td class="row-label">Creation Points</td>
+              <td class="row-label">{{localize "Polaris.AbilityTable.CreationPoints"}}</td>
               {{#each system.abilities as |ability key|}}
                 <td class="ability-value">
                   <input type="number"
@@ -114,7 +114,7 @@
 
             {{!-- Row 4: Actual Skill (Calculated) --}}
             <tr class="ability-row actual-skill">
-              <td class="row-label">Actual Skill</td>
+              <td class="row-label">{{localize "Polaris.AbilityTable.ActualSkill"}}</td>
               {{#each system.abilities as |ability key|}}
                 <td class="ability-value calculated">
                   <span class="skill-value">{{ability.value}}</span>
@@ -125,7 +125,7 @@
 
             {{!-- Row 5: Natural Aptitude --}}
             <tr class="ability-row">
-              <td class="row-label">Natural Aptitude</td>
+              <td class="row-label">{{localize "Polaris.AbilityTable.NaturalAptitude"}}</td>
               {{#each system.abilities as |ability key|}}
                 <td class="ability-value">
                   <input type="number"
@@ -140,6 +140,41 @@
           </tbody>
         </table>
       </div>
+
+      {{!-- Luck Skill Section --}}
+      <section class="luck-section">
+        <div class="luck-container">
+          <div class="luck-header">
+            <h3 class="luck-title">{{localize "Polaris.Luck.Title"}}</h3>
+            <span class="luck-subtitle">{{localize "Polaris.Luck.Subtitle"}}</span>
+          </div>
+          <div class="luck-content">
+            <div class="luck-value-group">
+              <label for="system.luck.value" class="luck-label">{{localize "Polaris.Luck.Value"}}</label>
+              <input type="number"
+                     name="system.luck.value"
+                     value="{{system.luck.value}}"
+                     data-dtype="Number"
+                     min="0"
+                     max="20"
+                     class="luck-input"/>
+            </div>
+            <div class="luck-modifier">
+              <span class="luck-mod-label">{{localize "Polaris.Luck.Modifier"}}</span>
+              <span class="luck-mod-value">{{numberFormat system.luck.mod decimals=0 sign=true}}</span>
+            </div>
+            <div class="luck-roll">
+              <button type="button"
+                      class="luck-roll-button rollable"
+                      data-roll="d20+@luck.mod"
+                      data-label="{{localize 'Polaris.Luck.Check'}}">
+                <i class="fas fa-dice-d20"></i>
+                {{localize "Polaris.Luck.Roll"}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {{!-- Skills/Features Section --}}
       <section class="features-section">

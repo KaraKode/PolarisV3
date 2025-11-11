@@ -641,6 +641,129 @@
 .Polaris .character .tab.features {
   background: linear-gradient(to bottom, #e8f1f8 0%, #fff 50%);
 }
+.Polaris .character .luck-section {
+  margin: 20px 15px;
+}
+.Polaris .character .luck-section .luck-container {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2c5f8d 100%);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 3px solid #d4af37;
+}
+.Polaris .character .luck-section .luck-container .luck-header {
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+}
+.Polaris .character .luck-section .luck-container .luck-header .luck-title {
+  color: #d4af37;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.Polaris .character .luck-section .luck-container .luck-header .luck-subtitle {
+  color: #e8f1f8;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin-top: 5px;
+}
+.Polaris .character .luck-section .luck-container .luck-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-value-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-value-group .luck-label {
+  color: #e8f1f8;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-value-group .luck-input {
+  width: 80px;
+  height: 50px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 3px solid #d4af37;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0f1e2e;
+  transition: all 0.3s;
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-value-group .luck-input:focus {
+  outline: none;
+  box-shadow: 0 0 12px #d4af37;
+  background: #fff;
+  transform: scale(1.05);
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-value-group .luck-input:hover {
+  border-color: #5ab3ff;
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-modifier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 25px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-modifier .luck-mod-label {
+  color: #e8f1f8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-modifier .luck-mod-value {
+  color: #d4af37;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-roll .luck-roll-button {
+  background: linear-gradient(135deg, #d4af37 0%, #b89b2f 100%);
+  color: #0f1e2e;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-roll .luck-roll-button i {
+  margin-right: 8px;
+  font-size: 18px;
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-roll .luck-roll-button:hover {
+  background: linear-gradient(135deg, #ddb944 0%, #d4af37 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+.Polaris .character .luck-section .luck-container .luck-content .luck-roll .luck-roll-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
 .Polaris .character .section-title {
   color: #1e3a5f;
   font-size: 20px;

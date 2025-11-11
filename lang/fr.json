@@ -1,0 +1,79 @@
+{
+  "Polaris": {
+    "Ability": {
+      "FOR": { "long": "FORCE", "abbr": "FOR" },
+      "CON": { "long": "CONSTITUTION", "abbr": "CON" },
+      "COO": { "long": "COORDINATION", "abbr": "COO" },
+      "ADA": { "long": "ADAPTATION", "abbr": "ADA" },
+      "PER": { "long": "PERCEPTION", "abbr": "PER" },
+      "INT": { "long": "INTELLIGENCE", "abbr": "INT" },
+      "VOL": { "long": "VOLONTÉ", "abbr": "VOL" },
+      "PRE": { "long": "PRÉSENCE", "abbr": "PRE" }      
+    },
+    "AbilityTable": {
+      "BasicSkill": "Compétence de Base",
+      "GeneticModifier": "Modificateur Génétique",
+      "CreationPoints": "Points de Création",
+      "ActualSkill": "Compétence Actuelle",
+      "NaturalAptitude": "Aptitude Naturelle"
+    },
+    "Luck": {
+      "Title": "Chance",
+      "Subtitle": "Attribut Spécial",
+      "Value": "Valeur de Chance",
+      "Modifier": "Modificateur",
+      "Roll": "Lancer la Chance",
+      "Check": "Test de Chance"
+    },
+    "Secondary": {
+      "REA": { "long": "RÉACTION", "abbr": "RÉA" },
+      "MDCC": { "long": "MOD DOMMAGE CAC", "abbr": "MDCC" },
+      "RAC": { "long": "RÉSISTANCE AU CHOC", "abbr": "RAC" },
+      "RAD": { "long": "RÉSISTANCE AUX DOMMAGES", "abbr": "RAD" },
+      "RN": { "long": "RÉSISTANCE NATURELLE", "abbr": "RN" },
+      "SOU": { "long": "SOUFFLE", "abbr": "SOU" }   
+    },
+    "SheetLabels": {
+      "Actor": "Fiche d'Acteur Polaris",
+      "Item": "Fiche d'Objet Polaris"
+    },
+    "Tabs": {
+      "AbilitiesSkills": "Capacités & Compétences",
+      "Items": "Objets",
+      "Spells": "Sorts",
+      "Biography": "Biographie",
+      "Effects": "Effets"
+    },
+    "Header": {
+      "Health": "Santé",
+      "Power": "Pouvoir",
+      "Level": "Niveau"
+    },
+    "Item": {
+      "Spell": {
+        "SpellLVL": "Sorts de Niveau {level}",
+        "AddLVL": "Ajouter Niveau {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Activer/Désactiver l'Effet",
+      "Temporary": "Effets Temporaires",
+      "Passive": "Effets Passifs",
+      "Inactive": "Effets Inactifs"
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "character": "Personnage",
+      "npc": "PNJ"
+    },
+    "Item": {
+      "item": "Objet",
+      "feature": "Capacité",
+      "spell": "Sort"
+    }
+  }
+}
+
