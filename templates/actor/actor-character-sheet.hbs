@@ -51,22 +51,94 @@
     {{!-- Abilities & Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
 
-      {{!-- Abilities Grid --}}
-      <div class="abilities-table">
-        {{#each system.abilities as |ability key|}}
-          <div class="ability-cell">
-            <label class="ability-label rollable"
-                   data-roll="d20+@abilities.{{key}}.mod"
-                   data-label="{{localize (lookup @root.config.abilities key)}}">
-              {{localize (lookup @root.config.abilities key)}}
-            </label>
-            <input type="number"
-                   name="system.abilities.{{key}}.value"
-                   value="{{ability.value}}"
-                   data-dtype="Number"/>
-            <span class="mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
-          </div>
-        {{/each}}
+      {{!-- Detailed Abilities Table --}}
+      <div class="abilities-detailed-table">
+        <table class="ability-table">
+          <thead>
+            <tr>
+              <th class="ability-header">Ability</th>
+              {{#each system.abilities as |ability key|}}
+                <th class="ability-name rollable"
+                    data-roll="d20+@abilities.{{key}}.mod"
+                    data-label="{{localize (lookup @root.config.abilities key)}}">
+                  {{localize (lookup @root.config.abilities key)}}
+                </th>
+              {{/each}}
+            </tr>
+          </thead>
+          <tbody>
+            {{!-- Row 1: Basic Skill --}}
+            <tr class="ability-row">
+              <td class="row-label">Basic Skill</td>
+              {{#each system.abilities as |ability key|}}
+                <td class="ability-value">
+                  <input type="number"
+                         name="system.abilities.{{key}}.base"
+                         value="{{ability.base}}"
+                         data-dtype="Number"
+                         min="0"
+                         max="20"/>
+                </td>
+              {{/each}}
+            </tr>
+
+            {{!-- Row 2: Genetic Modifier --}}
+            <tr class="ability-row">
+              <td class="row-label">Genetic Modifier</td>
+              {{#each system.abilities as |ability key|}}
+                <td class="ability-value">
+                  <input type="number"
+                         name="system.abilities.{{key}}.genetic"
+                         value="{{ability.genetic}}"
+                         data-dtype="Number"
+                         min="-5"
+                         max="5"/>
+                </td>
+              {{/each}}
+            </tr>
+
+            {{!-- Row 3: Creation Points --}}
+            <tr class="ability-row">
+              <td class="row-label">Creation Points</td>
+              {{#each system.abilities as |ability key|}}
+                <td class="ability-value">
+                  <input type="number"
+                         name="system.abilities.{{key}}.creation"
+                         value="{{ability.creation}}"
+                         data-dtype="Number"
+                         min="-5"
+                         max="10"/>
+                </td>
+              {{/each}}
+            </tr>
+
+            {{!-- Row 4: Actual Skill (Calculated) --}}
+            <tr class="ability-row actual-skill">
+              <td class="row-label">Actual Skill</td>
+              {{#each system.abilities as |ability key|}}
+                <td class="ability-value calculated">
+                  <span class="skill-value">{{ability.value}}</span>
+                  <span class="skill-mod">({{numberFormat ability.mod decimals=0 sign=true}})</span>
+                </td>
+              {{/each}}
+            </tr>
+
+            {{!-- Row 5: Natural Aptitude --}}
+            <tr class="ability-row">
+              <td class="row-label">Natural Aptitude</td>
+              {{#each system.abilities as |ability key|}}
+                <td class="ability-value">
+                  <input type="number"
+                         name="system.abilities.{{key}}.aptitude"
+                         value="{{ability.aptitude}}"
+                         data-dtype="Number"
+                         min="0"
+                         max="10"/>
+                </td>
+              {{/each}}
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       {{!-- Skills/Features Section --}}
