@@ -184,6 +184,13 @@ export class PolarisActorSheet extends ActorSheet {
     // Rollable abilities.
     html.on('click', '.rollable', this._onRoll.bind(this));
 
+    // NPC-specific handlers
+    html.on('click', '.add-attack', this._onAddAttack.bind(this));
+    html.on('click', '.attack-delete', this._onDeleteAttack.bind(this));
+    html.on('click', '.add-ability', this._onAddAbility.bind(this));
+    html.on('click', '.ability-delete', this._onDeleteAbility.bind(this));
+    html.on('click', '.attack-roll', this._onAttackRoll.bind(this));
+
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = (ev) => this._onDragStart(ev);
@@ -251,6 +258,107 @@ export class PolarisActorSheet extends ActorSheet {
         rollMode: game.settings.get('core', 'rollMode'),
       });
       return roll;
+    }
+  }
+
+  /**
+   * Handle adding a new attack to NPC
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onAddAttack(event) {
+    event.preventDefault();
+    const attacks = this.actor.system.attacks || [];
+    await this.actor.update({
+      'system.attacks': [...attacks, {
+        name: 'New Attack',
+        type: 'Melee',
+        bonus: 0,
+        damage: '1d6',
+        damageType: 'Physical',
+        range: '5m',
+        description: ''
+      }]
+    });
+  }
+
+  /**
+   * Handle deleting an attack from NPC
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onDeleteAttack(event) {
+    event.preventDefault();
+    const index = parseInt(event.currentTarget.dataset.index);
+    const attacks = [...this.actor.system.attacks];
+    attacks.splice(index, 1);
+    await this.actor.update({ 'system.attacks': attacks });
+  }
+
+  /**
+   * Handle adding a new special ability to NPC
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onAddAbility(event) {
+    event.preventDefault();
+    const type = event.currentTarget.dataset.type;
+    const abilities = this.actor.system[type] || [];
+    await this.actor.update({
+      [`system.${type}`]: [...abilities, {
+        name: 'New Ability',
+        description: ''
+      }]
+    });
+  }
+
+  /**
+   * Handle deleting a special ability from NPC
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onDeleteAbility(event) {
+    event.preventDefault();
+    const index = parseInt(event.currentTarget.dataset.index);
+    const type = event.currentTarget.dataset.type;
+    const abilities = [...this.actor.system[type]];
+    abilities.splice(index, 1);
+    await this.actor.update({ [`system.${type}`]: abilities });
+  }
+
+  /**
+   * Handle rolling an NPC attack
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onAttackRoll(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const index = parseInt(button.dataset.index);
+    const attack = this.actor.system.attacks[index];
+
+    if (!attack) return;
+
+    // Roll attack
+    const attackRoll = new Roll(button.dataset.roll, this.actor.getRollData());
+    await attackRoll.evaluate();
+
+    attackRoll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<strong>${attack.name}</strong> - Attack Roll`,
+      rollMode: game.settings.get('core', 'rollMode'),
+    });
+
+    // Roll damage if attack hits
+    if (attack.damage) {
+      const damageRoll = new Roll(attack.damage, this.actor.getRollData());
+      await damageRoll.evaluate();
+
+      damageRoll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: `<strong>${attack.name}</strong> - Damage (${attack.damageType})`,
+        rollMode: game.settings.get('core', 'rollMode'),
+      });
     }
   }
 }

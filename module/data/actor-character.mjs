@@ -120,11 +120,27 @@ export default class PolarisCharacter extends PolarisActorBase {
       const VOL = this.abilities.VOL?.value || 10;
 
       // Shock resistance thresholds
-      this.secondaryAbilities.shock.numbnessThreshold = Math.floor(CON / 2);
-      this.secondaryAbilities.shock.unconsciousnessThreshold = CON;
+      this.secondaryAbilities.shock.numbnessThreshold = Math.floor(FOR + CON + VOL / 2);
+      this.secondaryAbilities.shock.unconsciousnessThreshold = this.secondaryAbilities.shock.numbnessThreshold + 10;
 
-      // Damage modifier (CAC - melee)
-      this.secondaryAbilities.damageModifier.cac = Math.floor((FOR - 10) / 2);
+      // Damage modifier (CAC - melee) based on Force table
+      // FOR 1-2:-6, 3-4:-4, 5-6:-2, 7-8:-1, 9-11:0, 12-13:+1, 14-15:+2, 16-17:+3, 18-19:+4, 20-21:+5, 22+:+1 per 2
+      let cacModifier = 0;
+      if (FOR <= 2) cacModifier = -6;
+      else if (FOR <= 4) cacModifier = -4;
+      else if (FOR <= 6) cacModifier = -2;
+      else if (FOR <= 8) cacModifier = -1;
+      else if (FOR <= 11) cacModifier = 0;
+      else if (FOR <= 13) cacModifier = 1;
+      else if (FOR <= 15) cacModifier = 2;
+      else if (FOR <= 17) cacModifier = 3;
+      else if (FOR <= 19) cacModifier = 4;
+      else if (FOR <= 21) cacModifier = 5;
+      else {
+        // FOR 22+: +1 for every 2 points above 20
+        cacModifier = 5 + Math.floor((FOR - 20) / 2);
+      }
+      this.secondaryAbilities.damageModifier.cac = cacModifier;
 
       // Reaction: (ADA + PER) / 2
       this.secondaryAbilities.reaction.value = Math.floor((ADA + PER) / 2);

@@ -1,0 +1,414 @@
+// NPC Stat Block Styling
+
+.npc-stat-block {
+  background: $c-white;
+  border: 3px solid $c-polaris-primary;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Book Antiqua', 'Palatino Linotype', serif;
+
+  // Header
+  .npc-header {
+    background: linear-gradient(135deg, $c-polaris-primary 0%, $c-polaris-secondary 100%);
+    padding: 15px 20px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid $c-polaris-gold;
+
+    .npc-title-section {
+      flex: 1;
+
+      .npc-name {
+        margin: 0;
+        padding: 0;
+
+        input {
+          background: transparent;
+          border: none;
+          color: $c-white;
+          font-size: 28px;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          width: 100%;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+          &:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 4px 8px;
+          }
+        }
+      }
+
+      .npc-subtitle {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 5px;
+
+        input {
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: $c-polaris-light;
+          font-size: 14px;
+          font-style: italic;
+          padding: 2px 6px;
+          border-radius: 3px;
+
+          &:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-color: $c-polaris-gold;
+          }
+        }
+
+        .size-input { width: 80px; }
+        .type-input { width: 120px; }
+        .alignment-input { width: 100px; }
+
+        .separator {
+          color: $c-polaris-light;
+        }
+      }
+    }
+
+    .npc-portrait {
+      width: 80px;
+      height: 80px;
+      border: 3px solid $c-polaris-gold;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  // Stat Block Body
+  .npc-stat-block-body {
+    padding: 15px 20px;
+
+    .stat-block-section {
+      margin-bottom: 12px;
+
+      .stat-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+
+        .stat-label {
+          font-weight: bold;
+          color: $c-polaris-primary;
+          min-width: 100px;
+        }
+
+        .inline-input {
+          width: 60px;
+          padding: 2px 6px;
+          border: 1px solid $c-polaris-border;
+          border-radius: 3px;
+          text-align: center;
+
+          &:focus {
+            outline: none;
+            border-color: $c-polaris-accent;
+          }
+        }
+
+        .inline-input-wide {
+          width: 150px;
+          padding: 2px 6px;
+          border: 1px solid $c-polaris-border;
+          border-radius: 3px;
+
+          &:focus {
+            outline: none;
+            border-color: $c-polaris-accent;
+          }
+        }
+      }
+
+      textarea {
+        width: 100%;
+        padding: 6px 10px;
+        border: 1px solid $c-polaris-border;
+        border-radius: 4px;
+        font-family: inherit;
+        resize: vertical;
+
+        &:focus {
+          outline: none;
+          border-color: $c-polaris-accent;
+        }
+      }
+    }
+
+    .stat-block-divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, $c-polaris-gold, transparent);
+      margin: 12px 0;
+    }
+
+    // Abilities Grid
+    .abilities-section {
+      .abilities-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+
+        @media (max-width: 768px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .ability-stat {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 8px;
+          background: $c-polaris-light;
+          border: 1px solid $c-polaris-border;
+          border-radius: 4px;
+
+          .ability-name {
+            font-weight: bold;
+            font-size: 11px;
+            color: $c-polaris-primary;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+          }
+
+          .ability-input {
+            width: 50px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            border: 1px solid $c-polaris-border;
+            border-radius: 3px;
+            padding: 4px;
+            margin-bottom: 4px;
+
+            &:focus {
+              outline: none;
+              border-color: $c-polaris-accent;
+            }
+          }
+
+          .ability-mod {
+            font-size: 12px;
+            color: $c-polaris-secondary;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    // Section Headers
+    .section-header {
+      color: $c-polaris-primary;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 10px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid $c-polaris-gold;
+    }
+
+    // Special Abilities
+    .special-abilities {
+      .special-ability-item {
+        background: $c-polaris-light;
+        border: 1px solid $c-polaris-border;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+
+        .ability-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 6px;
+
+          .ability-name-input {
+            flex: 1;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 4px 8px;
+            border: 1px solid $c-polaris-border;
+            border-radius: 3px;
+
+            &:focus {
+              outline: none;
+              border-color: $c-polaris-accent;
+            }
+          }
+
+          .ability-delete {
+            background: #c0392b;
+            color: $c-white;
+            border: none;
+            border-radius: 3px;
+            padding: 4px 8px;
+            cursor: pointer;
+            margin-left: 8px;
+
+            &:hover {
+              background: darken(#c0392b, 10%);
+            }
+          }
+        }
+      }
+
+      .add-ability {
+        background: $c-polaris-accent;
+        color: $c-white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-weight: 600;
+
+        &:hover {
+          background: $c-polaris-hover;
+        }
+      }
+    }
+
+    // Attacks Section
+    .attacks-section {
+      .attack-item {
+        background: $c-polaris-light;
+        border: 2px solid $c-polaris-border;
+        border-radius: 6px;
+        padding: 12px;
+        margin-bottom: 12px;
+
+        .attack-header {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          margin-bottom: 8px;
+
+          .attack-name-input {
+            flex: 1;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 6px 10px;
+            border: 1px solid $c-polaris-border;
+            border-radius: 4px;
+
+            &:focus {
+              outline: none;
+              border-color: $c-polaris-accent;
+            }
+          }
+
+          select {
+            padding: 6px 10px;
+            border: 1px solid $c-polaris-border;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:focus {
+              outline: none;
+              border-color: $c-polaris-accent;
+            }
+          }
+
+          .attack-delete {
+            background: #c0392b;
+            color: $c-white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+
+            &:hover {
+              background: darken(#c0392b, 10%);
+            }
+          }
+        }
+
+        .attack-details {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+          margin-bottom: 8px;
+
+          @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .attack-field {
+            display: flex;
+            flex-direction: column;
+
+            label {
+              font-size: 11px;
+              font-weight: 600;
+              color: $c-polaris-secondary;
+              margin-bottom: 4px;
+            }
+
+            .small-input { width: 100%; }
+            .medium-input { width: 100%; }
+
+            input {
+              padding: 4px 8px;
+              border: 1px solid $c-polaris-border;
+              border-radius: 3px;
+
+              &:focus {
+                outline: none;
+                border-color: $c-polaris-accent;
+              }
+            }
+          }
+        }
+
+        .attack-roll {
+          background: $c-polaris-gold;
+          color: $c-polaris-dark;
+          border: none;
+          border-radius: 4px;
+          padding: 8px 16px;
+          cursor: pointer;
+          font-weight: bold;
+          margin-top: 8px;
+          width: 100%;
+
+          &:hover {
+            background: lighten($c-polaris-gold, 5%);
+          }
+
+          i {
+            margin-right: 6px;
+          }
+        }
+      }
+
+      .add-attack {
+        background: $c-polaris-accent;
+        color: $c-white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-weight: 600;
+
+        &:hover {
+          background: $c-polaris-hover;
+        }
+      }
+    }
+  }
+}
+
