@@ -51,13 +51,46 @@
     {{!-- Abilities Section --}}
     <div class="stat-block-section abilities-section">
       <div class="abilities-grid">
-        {{#each system.abilities as |value key|}}
-          <div class="ability-stat">
-            <span class="ability-name">{{key}}</span>
-            <input type="number" name="system.abilities.{{key}}" value="{{value}}" data-dtype="Number" class="ability-input"/>
-            <span class="ability-mod">({{numberFormat (floor (subtract value 10) 2) decimals=0 sign=true}})</span>
-          </div>
-        {{/each}}
+        <div class="ability-stat">
+          <span class="ability-name">FOR</span>
+          <input type="number" name="system.abilities.FOR" value="{{system.abilities.FOR}}" data-dtype="Number" class="ability-input"/>
+          <span class="ability-mod">({{system.abilityMods.FOR}})</span>
+        </div>
+        <div class="ability-stat">
+          <span class="ability-name">CON</span>
+          <input type="number" name="system.abilities.CON" value="{{system.abilities.CON}}" data-dtype="Number" class="ability-input"/>
+          <span class="ability-mod">({{system.abilityMods.CON}})</span>
+        </div>
+        <div class="ability-stat">
+          <span class="ability-name">COO</span>
+          <input type="number" name="system.abilities.COO" value="{{system.abilities.COO}}" data-dtype="Number" class="ability-input"/>
+          <span class="ability-mod">({{system.abilityMods.COO}})</span>
+        </div>
+        <div class="ability-stat">
+          <span class="ability-name">ADA</span>
+          <input type="number" name="system.abilities.ADA" value="{{system.abilities.ADA}}" data-dtype="Number" class="ability-input"/>
+          <span class="ability-mod">({{system.abilityMods.ADA}})</span>
+        </div>
+        <div class="ability-stat">
+          <span class="ability-name">PER</span>
+          <input type="number" name="system.abilities.PER" value="{{system.abilities.PER}}" data-dtype="Number" class="ability-input"/>
+          <span class="ability-mod">({{system.abilityMods.PER}})</span>
+        </div>
+        <div class="ability-stat">
+          <span class="ability-name">INT</span>
+          <input type="number" name="system.abilities.INT" value="{{system.abilities.INT}}" data-dtype="Number" class="ability-input"/>
+          <span class="ability-mod">({{system.abilityMods.INT}})</span>
+        </div>
+        <div class="ability-stat">
+          <span class="ability-name">VOL</span>
+          <input type="number" name="system.abilities.VOL" value="{{system.abilities.VOL}}" data-dtype="Number" class="ability-input"/>
+          <span class="ability-mod">({{system.abilityMods.VOL}})</span>
+        </div>
+        <div class="ability-stat">
+          <span class="ability-name">PRE</span>
+          <input type="number" name="system.abilities.PRE" value="{{system.abilities.PRE}}" data-dtype="Number" class="ability-input"/>
+          <span class="ability-mod">({{system.abilityMods.PRE}})</span>
+        </div>
       </div>
     </div>
 

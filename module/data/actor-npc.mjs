@@ -78,12 +78,11 @@ export default class PolarisNPC extends PolarisActorBase {
     this.xp = this.cr * this.cr * 100;
 
     // Calculate ability modifiers for NPCs
+    this.abilityMods = {};
     if (this.abilities) {
       for (const [key, value] of Object.entries(this.abilities)) {
-        // Store modifier for each ability
-        if (!this.abilities[key + 'Mod']) {
-          this.abilities[key + 'Mod'] = Math.floor((value - 10) / 2);
-        }
+        const mod = Math.floor((value - 10) / 2);
+        this.abilityMods[key] = mod >= 0 ? `+${mod}` : `${mod}`;
       }
     }
   }
