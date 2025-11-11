@@ -25,6 +25,25 @@
       "Roll": "Roll Luck",
       "Check": "Luck Check"
     },
+    "SecondaryAbilities": {
+      "Title": "Secondary Abilities",
+      "Shock": "Shock Resistance",
+      "NumbnessThreshold": "Numbness Threshold",
+      "UnconsciousnessThreshold": "Unconsciousness Threshold",
+      "DamageModifier": "Damage Modifier",
+      "CAC": "Melee (CAC)",
+      "Reaction": "Reaction",
+      "ReactionValue": "Reaction Value",
+      "DamageResistance": "Damage Resistance",
+      "BaseResistance": "Base Resistance",
+      "NaturalResistance": "Natural Resistance",
+      "Drugs": "Drugs",
+      "Sickness": "Sickness",
+      "Poison": "Poison",
+      "Radiation": "Radiation",
+      "Breath": "Breath",
+      "BreathValue": "Breath Value"
+    },
     "Secondary": {
       "REA": { "long": "REACTION", "abbr": "REA" },
       "MDCC": { "long": "MELEE DAMAGE MOD", "abbr": "MDCC" },

@@ -50,10 +50,12 @@
         
         <div class="physical-field">
           <label for="system.physical.dominantHand">{{localize "Polaris.Physical.DominantHand"}}</label>
-          <select name="system.physical.dominantHand">
-            <option value="Right" {{#if (eq system.physical.dominantHand "Right")}}selected{{/if}}>{{localize "Polaris.Physical.Right"}}</option>
-            <option value="Left" {{#if (eq system.physical.dominantHand "Left")}}selected{{/if}}>{{localize "Polaris.Physical.Left"}}</option>
-            <option value="Ambidextrous" {{#if (eq system.physical.dominantHand "Ambidextrous")}}selected{{/if}}>{{localize "Polaris.Physical.Ambidextrous"}}</option>
+          <select name="system.physical.dominantHand" data-dtype="String">
+            {{#select system.physical.dominantHand}}
+            <option value="Right">{{localize "Polaris.Physical.Right"}}</option>
+            <option value="Left">{{localize "Polaris.Physical.Left"}}</option>
+            <option value="Ambidextrous">{{localize "Polaris.Physical.Ambidextrous"}}</option>
+            {{/select}}
           </select>
         </div>
       </div>

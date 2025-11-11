@@ -142,6 +142,106 @@
         </table>
       </div>
 
+      {{!-- Secondary Abilities Table --}}
+      <section class="secondary-abilities-section">
+        <h2 class="section-title">{{localize "Polaris.SecondaryAbilities.Title"}}</h2>
+        <div class="secondary-abilities-grid">
+
+          {{!-- Shock Resistance --}}
+          <div class="secondary-ability-card">
+            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.Shock"}}</h3>
+            <div class="secondary-values">
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.NumbnessThreshold"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.shock.numbnessThreshold}}</span>
+                <span class="formula">(CON / 2)</span>
+              </div>
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.UnconsciousnessThreshold"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.shock.unconsciousnessThreshold}}</span>
+                <span class="formula">(CON)</span>
+              </div>
+            </div>
+          </div>
+
+          {{!-- Damage Modifier --}}
+          <div class="secondary-ability-card">
+            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.DamageModifier"}}</h3>
+            <div class="secondary-values">
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.CAC"}}</label>
+                <span class="value-display modifier">{{numberFormat system.secondaryAbilities.damageModifier.cac decimals=0 sign=true}}</span>
+                <span class="formula">((FOR - 10) / 2)</span>
+              </div>
+            </div>
+          </div>
+
+          {{!-- Reaction --}}
+          <div class="secondary-ability-card">
+            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.Reaction"}}</h3>
+            <div class="secondary-values">
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.ReactionValue"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.reaction.value}}</span>
+                <span class="formula">((ADA + PER) / 2)</span>
+              </div>
+            </div>
+          </div>
+
+          {{!-- Damage Resistance --}}
+          <div class="secondary-ability-card">
+            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.DamageResistance"}}</h3>
+            <div class="secondary-values">
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.BaseResistance"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.damageResistance.value}}</span>
+                <span class="formula">(Base + Equipment)</span>
+              </div>
+            </div>
+          </div>
+
+          {{!-- Natural Resistance --}}
+          <div class="secondary-ability-card wide">
+            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.NaturalResistance"}}</h3>
+            <div class="secondary-values multi">
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.Drugs"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.naturalResistance.drugs}}</span>
+                <span class="formula">((CON + VOL) / 2)</span>
+              </div>
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.Sickness"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.naturalResistance.sickness}}</span>
+                <span class="formula">(CON)</span>
+              </div>
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.Poison"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.naturalResistance.poison}}</span>
+                <span class="formula">(CON)</span>
+              </div>
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.Radiation"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.naturalResistance.radiation}}</span>
+                <span class="formula">(CON)</span>
+              </div>
+            </div>
+          </div>
+
+          {{!-- Breath --}}
+          <div class="secondary-ability-card">
+            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.Breath"}}</h3>
+            <div class="secondary-values">
+              <div class="secondary-value">
+                <label>{{localize "Polaris.SecondaryAbilities.BreathValue"}}</label>
+                <span class="value-display">{{system.secondaryAbilities.breath.value}}</span>
+                <span class="formula">((CON + VOL) / 2)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {{!-- Luck Skill Section --}}
       <section class="luck-section">
         <div class="luck-container">

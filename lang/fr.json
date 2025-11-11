@@ -25,6 +25,25 @@
       "Roll": "Lancer la Chance",
       "Check": "Test de Chance"
     },
+    "SecondaryAbilities": {
+      "Title": "Capacités Secondaires",
+      "Shock": "Résistance au Choc",
+      "NumbnessThreshold": "Seuil d'Engourdissement",
+      "UnconsciousnessThreshold": "Seuil d'Inconscience",
+      "DamageModifier": "Modificateur de Dommages",
+      "CAC": "Corps à Corps (CAC)",
+      "Reaction": "Réaction",
+      "ReactionValue": "Valeur de Réaction",
+      "DamageResistance": "Résistance aux Dommages",
+      "BaseResistance": "Résistance de Base",
+      "NaturalResistance": "Résistance Naturelle",
+      "Drugs": "Drogues",
+      "Sickness": "Maladies",
+      "Poison": "Poison",
+      "Radiation": "Radiation",
+      "Breath": "Souffle",
+      "BreathValue": "Valeur de Souffle"
+    },
     "Secondary": {
       "REA": { "long": "RÉACTION", "abbr": "RÉA" },
       "MDCC": { "long": "MOD DOMMAGE CAC", "abbr": "MDCC" },

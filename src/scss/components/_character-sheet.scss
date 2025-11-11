@@ -344,6 +344,119 @@
     }
   }
 
+  // Secondary Abilities Section
+  .secondary-abilities-section {
+    margin: 20px 15px;
+
+    .secondary-abilities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+
+      .secondary-ability-card {
+        background: linear-gradient(135deg, $c-white 0%, $c-polaris-light 100%);
+        border: 2px solid $c-polaris-border;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          border-color: $c-polaris-accent;
+        }
+
+        &.wide {
+          grid-column: span 2;
+
+          @media (max-width: 1024px) {
+            grid-column: span 2;
+          }
+
+          @media (max-width: 768px) {
+            grid-column: span 1;
+          }
+        }
+
+        .secondary-title {
+          color: $c-polaris-primary;
+          font-size: 14px;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin: 0 0 12px 0;
+          padding-bottom: 8px;
+          border-bottom: 2px solid $c-polaris-gold;
+          text-align: center;
+        }
+
+        .secondary-values {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          &.multi {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+
+            @media (max-width: 480px) {
+              grid-template-columns: 1fr;
+            }
+          }
+
+          .secondary-value {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px;
+            background: rgba($c-white, 0.8);
+            border-radius: 6px;
+            border: 1px solid rgba($c-polaris-border, 0.3);
+
+            label {
+              color: $c-polaris-secondary;
+              font-size: 11px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              margin-bottom: 6px;
+              text-align: center;
+            }
+
+            .value-display {
+              font-size: 24px;
+              font-weight: bold;
+              color: $c-polaris-primary;
+              margin-bottom: 4px;
+
+              &.modifier {
+                color: $c-polaris-gold;
+              }
+            }
+
+            .formula {
+              font-size: 10px;
+              color: rgba($c-polaris-dark, 0.6);
+              font-style: italic;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
   // Luck Section
   .luck-section {
     margin: 20px 15px;

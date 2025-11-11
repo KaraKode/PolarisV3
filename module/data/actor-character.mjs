@@ -26,13 +26,37 @@ export default class PolarisCharacter extends PolarisActorBase {
       return obj;
     }, {}));
 
-    // Iterate over secondary attributes and create a new SchemaField for each.
-    schema.Secondary = new fields.SchemaField(Object.keys(CONFIG.Polaris.secondary).reduce((obj, secondary) => {
-      obj[secondary] = new fields.SchemaField({
-        value: new fields.NumberField({ ...requiredInteger, initial: 10 })
-      });
-      return obj;
-    }, {}));
+    // Secondary abilities - calculated from primary abilities
+    schema.secondaryAbilities = new fields.SchemaField({
+      // Shock resistance
+      shock: new fields.SchemaField({
+        numbnessThreshold: new fields.NumberField({ ...requiredInteger, initial: 0 }),      // Numbness threshold
+        unconsciousnessThreshold: new fields.NumberField({ ...requiredInteger, initial: 0 }) // Unconsciousness threshold
+      }),
+      // Damage modifier (CAC - Close Combat)
+      damageModifier: new fields.SchemaField({
+        cac: new fields.NumberField({ ...requiredInteger, initial: 0 })                     // Melee damage modifier
+      }),
+      // Reaction
+      reaction: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0 })                   // (ADA + PER) / 2
+      }),
+      // Damage resistance
+      damageResistance: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0 })                   // Base damage resistance
+      }),
+      // Natural resistance
+      naturalResistance: new fields.SchemaField({
+        drugs: new fields.NumberField({ ...requiredInteger, initial: 0 }),                  // (CON + VOL) / 2
+        sickness: new fields.NumberField({ ...requiredInteger, initial: 0 }),               // CON
+        poison: new fields.NumberField({ ...requiredInteger, initial: 0 }),                 // CON
+        radiation: new fields.NumberField({ ...requiredInteger, initial: 0 })               // CON
+      }),
+      // Breath
+      breath: new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 0 })                   // (CON + VOL) / 2
+      })
+    });
 
     // Luck skill - special attribute
     schema.luck = new fields.SchemaField({
@@ -85,6 +109,37 @@ export default class PolarisCharacter extends PolarisActorBase {
     // Calculate luck modifier
     if (this.luck) {
       this.luck.mod = Math.floor((this.luck.value - 10) / 2);
+    }
+
+    // Calculate secondary abilities
+    if (this.secondaryAbilities && this.abilities) {
+      const CON = this.abilities.CON?.value || 10;
+      const FOR = this.abilities.FOR?.value || 10;
+      const ADA = this.abilities.ADA?.value || 10;
+      const PER = this.abilities.PER?.value || 10;
+      const VOL = this.abilities.VOL?.value || 10;
+
+      // Shock resistance thresholds
+      this.secondaryAbilities.shock.numbnessThreshold = Math.floor(CON / 2);
+      this.secondaryAbilities.shock.unconsciousnessThreshold = CON;
+
+      // Damage modifier (CAC - melee)
+      this.secondaryAbilities.damageModifier.cac = Math.floor((FOR - 10) / 2);
+
+      // Reaction: (ADA + PER) / 2
+      this.secondaryAbilities.reaction.value = Math.floor((ADA + PER) / 2);
+
+      // Damage resistance (base value, can be modified by armor/effects)
+      this.secondaryAbilities.damageResistance.value = 0; // Base is 0, modified by equipment
+
+      // Natural resistance
+      this.secondaryAbilities.naturalResistance.drugs = Math.floor((CON + VOL) / 2);
+      this.secondaryAbilities.naturalResistance.sickness = CON;
+      this.secondaryAbilities.naturalResistance.poison = CON;
+      this.secondaryAbilities.naturalResistance.radiation = CON;
+
+      // Breath: (CON + VOL) / 2
+      this.secondaryAbilities.breath.value = Math.floor((CON + VOL) / 2);
     }
   }
 
