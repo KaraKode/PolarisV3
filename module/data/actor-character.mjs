@@ -71,7 +71,7 @@ export default class PolarisCharacter extends PolarisActorBase {
     });
 
     // Skills arrays (30 skills per column as shown in the image)
-    const skillSchema = new fields.SchemaField({
+    schema.skills1 = new fields.ArrayField(new fields.SchemaField({
       name: new fields.StringField({ required: true, blank: true, initial: "" }),
       attribute: new fields.StringField({ 
         required: true, 
@@ -83,9 +83,7 @@ export default class PolarisCharacter extends PolarisActorBase {
       mod: new fields.NumberField({ ...requiredInteger, initial: 0 }),
       trained: new fields.BooleanField({ required: true, initial: false }),
       total: new fields.NumberField({ ...requiredInteger, initial: 0 }),
-    });
-
-    schema.skills1 = new fields.ArrayField(skillSchema, { initial: () => {
+    }), { initial: () => {
       const skills = [];
       for (let i = 0; i < 30; i++) {
         skills.push({
@@ -100,7 +98,19 @@ export default class PolarisCharacter extends PolarisActorBase {
       return skills;
     }});
 
-    schema.skills2 = new fields.ArrayField(skillSchema, { initial: () => {
+    schema.skills2 = new fields.ArrayField(new fields.SchemaField({
+      name: new fields.StringField({ required: true, blank: true, initial: "" }),
+      attribute: new fields.StringField({ 
+        required: true, 
+        blank: false, 
+        initial: "FOR",
+        choices: ["FOR", "CON", "COO", "ADA", "PER", "INT", "VOL", "PRE"]
+      }),
+      base: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+      mod: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+      trained: new fields.BooleanField({ required: true, initial: false }),
+      total: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+    }), { initial: () => {
       const skills = [];
       for (let i = 0; i < 30; i++) {
         skills.push({
@@ -165,4 +175,5 @@ export default class PolarisCharacter extends PolarisActorBase {
     return data;
   }
 }
+
 
