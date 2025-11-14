@@ -138,6 +138,63 @@
       "Temporary": "Effets Temporaires",
       "Passive": "Effets Passifs",
       "Inactive": "Effets Inactifs"
+    },
+    "Character": {
+      "Name": "Nom du Personnage",
+      "Archetype": "Archétype",
+      "ArchetypePlaceholder": "ex: Soldat, Scientifique, Explorateur",
+      "GeneticType": "Type Génétique",
+      "GeneticTypePlaceholder": "ex: Humain Pur, Mutant, Hybride",
+      "Age": "Âge",
+      "Sex": "Sexe",
+      "Fertility": "Fécondité",
+      "Fertile": "Fécond",
+      "Sterile": "Stérile"
+    },
+    "Attributes": {
+      "Attribute": "Attribut",
+      "BaseLevel": "Niveau de Base",
+      "GeneticModifier": "Modificateur Génétique",
+      "CreationPoints": "Points de Création",
+      "CurrentLevel": "Niveau Actuel",
+      "NaturalAptitude": "Aptitude Naturelle",
+      "Chance": "Chance"
+    },
+    "SecondaryAttributes": {
+      "Title": "Attributs Secondaires"
+    },
+    "Skills": {
+      "Title": "Compétences",
+      "Column1": "Compétences",
+      "Column2": "Compétences",
+      "Skill": "Compétence",
+      "Attr": "Attr.",
+      "Base": "Base",
+      "Mod": "Mod.",
+      "Global": "Global",
+      "SkillName": "Nom de compétence..."
+    },
+    "Physical": {
+      "Height": "Taille",
+      "Weight": "Poids",
+      "Skin": "Peau",
+      "Corpulence": "Corpulence",
+      "Hair": "Cheveux",
+      "Eyes": "Yeux",
+      "GeographicOrigin": "Origine Géographique",
+      "SocialOrigin": "Origine Sociale",
+      "BasicTraining": "Formation de Base",
+      "HigherEducation": "Études Supérieures",
+      "DistinguishingMarks": "Signes Particuliers"
+    },
+    "Tabs": {
+      "Attributes": "Attributs",
+      "Skills": "Compétences",
+      "Physical": "Physique",
+      "Items": "Objets",
+      "Spells": "Sorts",
+      "Biography": "Biographie",
+      "Effects": "Effets"
     }
   },
 
@@ -153,4 +210,5 @@
     }
   }
 }
+
 

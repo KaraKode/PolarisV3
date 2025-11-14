@@ -12,13 +12,13 @@ export class PolarisActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['Polaris', 'sheet', 'actor'],
-      width: 1000,
-      height: 600,
+      width: 1200,
+      height: 700,
       tabs: [
         {
           navSelector: '.sheet-tabs',
           contentSelector: '.sheet-body',
-          initial: 'features',
+          initial: 'attributes',
         },
       ],
     });

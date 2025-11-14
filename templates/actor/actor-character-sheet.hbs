@@ -4,7 +4,37 @@
   <header class="sheet-header">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Character Name"/></h1>
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'Polaris.Character.Name'}}"/></h1>
+      
+      {{!-- Character Info Row --}}
+      <div class="character-info-row">
+        <div class="info-group">
+          <label>{{localize "Polaris.Character.Archetype"}}</label>
+          <input type="text" name="system.details.archetype" value="{{system.details.archetype}}" placeholder="{{localize 'Polaris.Character.ArchetypePlaceholder'}}"/>
+        </div>
+        <div class="info-group">
+          <label>{{localize "Polaris.Character.GeneticType"}}</label>
+          <input type="text" name="system.details.geneticType" value="{{system.details.geneticType}}" placeholder="{{localize 'Polaris.Character.GeneticTypePlaceholder'}}"/>
+        </div>
+      </div>
+
+      <div class="character-info-row">
+        <div class="info-group">
+          <label>{{localize "Polaris.Character.Age"}}</label>
+          <input type="number" name="system.details.age" value="{{system.details.age}}" data-dtype="Number"/>
+        </div>
+        <div class="info-group">
+          <label>{{localize "Polaris.Character.Sex"}}</label>
+          <input type="text" name="system.details.sex" value="{{system.details.sex}}"/>
+        </div>
+        <div class="info-group">
+          <label>{{localize "Polaris.Character.Fertility"}}</label>
+          <div class="fertility-options">
+            <label><input type="radio" name="system.details.fertility" value="fecond" {{#if (eq system.details.fertility "fecond")}}checked{{/if}}/> {{localize "Polaris.Character.Fertile"}}</label>
+            <label><input type="radio" name="system.details.fertility" value="sterile" {{#if (eq system.details.fertility "sterile")}}checked{{/if}}/> {{localize "Polaris.Character.Sterile"}}</label>
+          </div>
+        </div>
+      </div>
 
       {{!-- Primary Resources --}}
       <div class="resources grid grid-3col">
@@ -16,7 +46,6 @@
             <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number"/>
           </div>
         </div>
-
         <div class="resource flex-group-center">
           <label for="system.power.value" class="resource-label">{{localize "Polaris.Header.Power"}}</label>
           <div class="resource-content flexrow flex-center flex-between">
@@ -25,7 +54,6 @@
             <input type="text" name="system.power.max" value="{{system.power.max}}" data-dtype="Number"/>
           </div>
         </div>
-
         <div class="resource flex-group-center">
           <label for="system.attributes.level.value" class="resource-label">{{localize "Polaris.Header.Level"}}</label>
           <div class="resource-content flexrow flex-center flex-between">
@@ -38,41 +66,42 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="features">{{localize "Polaris.Tabs.AbilitiesSkills"}}</a>
+    <a class="item" data-tab="attributes">{{localize "Polaris.Tabs.Attributes"}}</a>
+    <a class="item" data-tab="skills">{{localize "Polaris.Tabs.Skills"}}</a>
     <a class="item" data-tab="physical">{{localize "Polaris.Tabs.Physical"}}</a>
     <a class="item" data-tab="items">{{localize "Polaris.Tabs.Items"}}</a>
     <a class="item" data-tab="spells">{{localize "Polaris.Tabs.Spells"}}</a>
-    <a class="item" data-tab="description">{{localize "Polaris.Tabs.Biography"}}</a>
+    <a class="item" data-tab="biography">{{localize "Polaris.Tabs.Biography"}}</a>
     <a class="item" data-tab="effects">{{localize "Polaris.Tabs.Effects"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
 
-    {{!-- Abilities & Features Tab --}}
-    <div class="tab features" data-group="primary" data-tab="features">
-
-      {{!-- Detailed Abilities Table --}}
-      <div class="abilities-detailed-table">
-        <table class="ability-table">
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      {{!-- Attributes Table --}}
+      <div class="attributes-section">
+        <table class="attributes-table">
           <thead>
             <tr>
-              <th class="ability-header">{{localize "Polaris.Ability"}}</th>
+              <th class="attribute-header">{{localize "Polaris.Attributes.Attribute"}}</th>
               {{#each system.abilities as |ability key|}}
-                <th class="ability-name rollable"
+                <th class="attribute-name rollable"
                     data-roll="d20+@abilities.{{key}}.mod"
                     data-label="{{localize (lookup @root.config.abilities key)}}">
                   {{localize (lookup @root.config.abilities key)}}
                 </th>
               {{/each}}
+              <th class="attribute-name">{{localize "Polaris.Attributes.Chance"}}</th>
             </tr>
           </thead>
           <tbody>
-            {{!-- Row 1: Basic Skill --}}
-            <tr class="ability-row">
-              <td class="row-label">{{localize "Polaris.AbilityTable.BasicSkill"}}</td>
+            {{!-- Base Level --}}
+            <tr class="attribute-row">
+              <td class="row-label">{{localize "Polaris.Attributes.BaseLevel"}}</td>
               {{#each system.abilities as |ability key|}}
-                <td class="ability-value">
+                <td class="attribute-value">
                   <input type="number"
                          name="system.abilities.{{key}}.base"
                          value="{{ability.base}}"
@@ -81,13 +110,21 @@
                          max="20"/>
                 </td>
               {{/each}}
+              <td class="attribute-value">
+                <input type="number"
+                       name="system.attributes.chance.base"
+                       value="{{system.attributes.chance.base}}"
+                       data-dtype="Number"
+                       min="0"
+                       max="20"/>
+              </td>
             </tr>
 
-            {{!-- Row 2: Genetic Modifier --}}
-            <tr class="ability-row">
-              <td class="row-label">{{localize "Polaris.AbilityTable.GeneticModifier"}}</td>
+            {{!-- Genetic Modifier --}}
+            <tr class="attribute-row">
+              <td class="row-label">{{localize "Polaris.Attributes.GeneticModifier"}}</td>
               {{#each system.abilities as |ability key|}}
-                <td class="ability-value">
+                <td class="attribute-value">
                   <input type="number"
                          name="system.abilities.{{key}}.genetic"
                          value="{{ability.genetic}}"
@@ -96,13 +133,21 @@
                          max="5"/>
                 </td>
               {{/each}}
+              <td class="attribute-value">
+                <input type="number"
+                       name="system.attributes.chance.genetic"
+                       value="{{system.attributes.chance.genetic}}"
+                       data-dtype="Number"
+                       min="-5"
+                       max="5"/>
+              </td>
             </tr>
 
-            {{!-- Row 3: Creation Points --}}
-            <tr class="ability-row">
-              <td class="row-label">{{localize "Polaris.AbilityTable.CreationPoints"}}</td>
+            {{!-- Creation Points --}}
+            <tr class="attribute-row">
+              <td class="row-label">{{localize "Polaris.Attributes.CreationPoints"}}</td>
               {{#each system.abilities as |ability key|}}
-                <td class="ability-value">
+                <td class="attribute-value">
                   <input type="number"
                          name="system.abilities.{{key}}.creation"
                          value="{{ability.creation}}"
@@ -111,24 +156,34 @@
                          max="10"/>
                 </td>
               {{/each}}
+              <td class="attribute-value">
+                <input type="number"
+                       name="system.attributes.chance.creation"
+                       value="{{system.attributes.chance.creation}}"
+                       data-dtype="Number"
+                       min="-5"
+                       max="10"/>
+              </td>
             </tr>
 
-            {{!-- Row 4: Actual Skill (Calculated) --}}
-            <tr class="ability-row actual-skill">
-              <td class="row-label">{{localize "Polaris.AbilityTable.ActualSkill"}}</td>
+            {{!-- Current Level --}}
+            <tr class="attribute-row current-level">
+              <td class="row-label">{{localize "Polaris.Attributes.CurrentLevel"}}</td>
               {{#each system.abilities as |ability key|}}
-                <td class="ability-value calculated">
-                  <span class="skill-value">{{ability.value}}</span>
-                  <span class="skill-mod">({{numberFormat ability.mod decimals=0 sign=true}})</span>
+                <td class="attribute-value calculated">
+                  <span class="attribute-total">{{ability.value}}</span>
                 </td>
               {{/each}}
+              <td class="attribute-value calculated">
+                <span class="attribute-total">{{system.attributes.chance.value}}</span>
+              </td>
             </tr>
 
-            {{!-- Row 5: Natural Aptitude --}}
-            <tr class="ability-row">
-              <td class="row-label">{{localize "Polaris.AbilityTable.NaturalAptitude"}}</td>
+            {{!-- Natural Aptitude --}}
+            <tr class="attribute-row">
+              <td class="row-label">{{localize "Polaris.Attributes.NaturalAptitude"}}</td>
               {{#each system.abilities as |ability key|}}
-                <td class="ability-value">
+                <td class="attribute-value">
                   <input type="number"
                          name="system.abilities.{{key}}.aptitude"
                          value="{{ability.aptitude}}"
@@ -137,112 +192,37 @@
                          max="10"/>
                 </td>
               {{/each}}
+              <td class="attribute-value">
+                <input type="number"
+                       name="system.attributes.chance.aptitude"
+                       value="{{system.attributes.chance.aptitude}}"
+                       data-dtype="Number"
+                       min="0"
+                       max="10"/>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      {{!-- Secondary Abilities Table --}}
-      <section class="secondary-abilities-section">
-        <h2 class="section-title">{{localize "Polaris.SecondaryAbilities.Title"}}</h2>
-        <div class="secondary-abilities-grid">
-
-          {{!-- Shock Resistance --}}
-          <div class="secondary-ability-card">
-            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.Shock"}}</h3>
-            <div class="secondary-values">
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.NumbnessThreshold"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.shock.numbnessThreshold}}</span>
-                <span class="formula">(CON / 2)</span>
-              </div>
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.UnconsciousnessThreshold"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.shock.unconsciousnessThreshold}}</span>
-                <span class="formula">(CON)</span>
-              </div>
+      {{!-- Secondary Attributes --}}
+      <section class="secondary-attributes-section">
+        <h2 class="section-title">{{localize "Polaris.SecondaryAttributes.Title"}}</h2>
+        <div class="secondary-attributes-grid">
+          {{#each config.secondaryAttributes as |attr key|}}
+            <div class="secondary-attribute">
+              <label class="secondary-label">{{localize attr.long}} ({{localize attr.abbr}})</label>
+              <input type="number"
+                     name="system.secondaryAttributes.{{key}}.value"
+                     value="{{lookup ../system.secondaryAttributes key 'value'}}"
+                     data-dtype="Number"
+                     class="secondary-input"/>
             </div>
-          </div>
-
-          {{!-- Damage Modifier --}}
-          <div class="secondary-ability-card">
-            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.DamageModifier"}}</h3>
-            <div class="secondary-values">
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.CAC"}}</label>
-                <span class="value-display modifier">{{numberFormat system.secondaryAbilities.damageModifier.cac decimals=0 sign=true}}</span>
-                <span class="formula">((FOR - 10) / 2)</span>
-              </div>
-            </div>
-          </div>
-
-          {{!-- Reaction --}}
-          <div class="secondary-ability-card">
-            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.Reaction"}}</h3>
-            <div class="secondary-values">
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.ReactionValue"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.reaction.value}}</span>
-                <span class="formula">((ADA + PER) / 2)</span>
-              </div>
-            </div>
-          </div>
-
-          {{!-- Damage Resistance --}}
-          <div class="secondary-ability-card">
-            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.DamageResistance"}}</h3>
-            <div class="secondary-values">
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.BaseResistance"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.damageResistance.value}}</span>
-                <span class="formula">(Base + Equipment)</span>
-              </div>
-            </div>
-          </div>
-
-          {{!-- Natural Resistance --}}
-          <div class="secondary-ability-card wide">
-            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.NaturalResistance"}}</h3>
-            <div class="secondary-values multi">
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.Drugs"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.naturalResistance.drugs}}</span>
-                <span class="formula">((CON + VOL) / 2)</span>
-              </div>
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.Sickness"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.naturalResistance.sickness}}</span>
-                <span class="formula">(CON)</span>
-              </div>
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.Poison"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.naturalResistance.poison}}</span>
-                <span class="formula">(CON)</span>
-              </div>
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.Radiation"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.naturalResistance.radiation}}</span>
-                <span class="formula">(CON)</span>
-              </div>
-            </div>
-          </div>
-
-          {{!-- Breath --}}
-          <div class="secondary-ability-card">
-            <h3 class="secondary-title">{{localize "Polaris.SecondaryAbilities.Breath"}}</h3>
-            <div class="secondary-values">
-              <div class="secondary-value">
-                <label>{{localize "Polaris.SecondaryAbilities.BreathValue"}}</label>
-                <span class="value-display">{{system.secondaryAbilities.breath.value}}</span>
-                <span class="formula">((CON + VOL) / 2)</span>
-              </div>
-            </div>
-          </div>
-
+          {{/each}}
         </div>
       </section>
 
-      {{!-- Luck Skill Section --}}
+      {{!-- Luck Section --}}
       <section class="luck-section">
         <div class="luck-container">
           <div class="luck-header">
@@ -276,17 +256,185 @@
           </div>
         </div>
       </section>
+    </div>
 
-      {{!-- Skills/Features Section --}}
-      <section class="features-section">
-        <h2 class="section-title">Skills & Features</h2>
-        {{> "systems/Polaris/templates/actor/parts/actor-features.hbs"}}
+    {{!-- Skills Tab --}}
+    <div class="tab skills" data-group="primary" data-tab="skills">
+      <section class="skills-section">
+        <h2 class="section-title">{{localize "Polaris.Skills.Title"}}</h2>
+        <div class="skills-container">
+          <div class="skills-column">
+            <h3 class="skills-column-title">{{localize "Polaris.Skills.Column1"}}</h3>
+            <table class="skills-table">
+              <thead>
+                <tr>
+                  <th class="skill-name-header">{{localize "Polaris.Skills.Skill"}}</th>
+                  <th class="skill-attr-header">{{localize "Polaris.Skills.Attr"}}</th>
+                  <th class="skill-base-header">{{localize "Polaris.Skills.Base"}}</th>
+                  <th class="skill-mod-header">{{localize "Polaris.Skills.Mod"}}</th>
+                  <th class="skill-global-header">{{localize "Polaris.Skills.Global"}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each system.skills1 as |skill index|}}
+                  <tr class="skill-row">
+                    <td class="skill-checkbox">
+                      <input type="checkbox" name="system.skills1.{{index}}.trained" {{#if skill.trained}}checked{{/if}}/>
+                      <input type="text" name="system.skills1.{{index}}.name" value="{{skill.name}}" placeholder="{{localize 'Polaris.Skills.SkillName'}}"/>
+                    </td>
+                    <td class="skill-attr">
+                      <select name="system.skills1.{{index}}.attribute" data-dtype="String">
+                        {{#select skill.attribute}}
+                        <option value="FOR">FOR</option>
+                        <option value="CON">CON</option>
+                        <option value="COO">COO</option>
+                        <option value="ADA">ADA</option>
+                        <option value="PER">PER</option>
+                        <option value="INT">INT</option>
+                        <option value="VOL">VOL</option>
+                        <option value="PRE">PRE</option>
+                        {{/select}}
+                      </select>
+                    </td>
+                    <td class="skill-base">
+                      <input type="number" name="system.skills1.{{index}}.base" value="{{skill.base}}" data-dtype="Number"/>
+                    </td>
+                    <td class="skill-mod">
+                      <input type="number" name="system.skills1.{{index}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
+                    </td>
+                    <td class="skill-global">
+                      <span class="skill-total">{{skill.total}}</span>
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="skills-column">
+            <h3 class="skills-column-title">{{localize "Polaris.Skills.Column2"}}</h3>
+            <table class="skills-table">
+              <thead>
+                <tr>
+                  <th class="skill-name-header">{{localize "Polaris.Skills.Skill"}}</th>
+                  <th class="skill-attr-header">{{localize "Polaris.Skills.Attr"}}</th>
+                  <th class="skill-base-header">{{localize "Polaris.Skills.Base"}}</th>
+                  <th class="skill-mod-header">{{localize "Polaris.Skills.Mod"}}</th>
+                  <th class="skill-global-header">{{localize "Polaris.Skills.Global"}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each system.skills2 as |skill index|}}
+                  <tr class="skill-row">
+                    <td class="skill-checkbox">
+                      <input type="checkbox" name="system.skills2.{{index}}.trained" {{#if skill.trained}}checked{{/if}}/>
+                      <input type="text" name="system.skills2.{{index}}.name" value="{{skill.name}}" placeholder="{{localize 'Polaris.Skills.SkillName'}}"/>
+                    </td>
+                    <td class="skill-attr">
+                      <select name="system.skills2.{{index}}.attribute" data-dtype="String">
+                        {{#select skill.attribute}}
+                        <option value="FOR">FOR</option>
+                        <option value="CON">CON</option>
+                        <option value="COO">COO</option>
+                        <option value="ADA">ADA</option>
+                        <option value="PER">PER</option>
+                        <option value="INT">INT</option>
+                        <option value="VOL">VOL</option>
+                        <option value="PRE">PRE</option>
+                        {{/select}}
+                      </select>
+                    </td>
+                    <td class="skill-base">
+                      <input type="number" name="system.skills2.{{index}}.base" value="{{skill.base}}" data-dtype="Number"/>
+                    </td>
+                    <td class="skill-mod">
+                      <input type="number" name="system.skills2.{{index}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
+                    </td>
+                    <td class="skill-global">
+                      <span class="skill-total">{{skill.total}}</span>
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
     </div>
 
     {{!-- Physical Description Tab --}}
     <div class="tab physical" data-group="primary" data-tab="physical">
-      {{> "systems/Polaris/templates/actor/parts/actor-physical.hbs"}}
+      <div class="physical-description-section">
+        <div class="physical-stats">
+          <div class="physical-row">
+            <div class="physical-group">
+              <label>{{localize "Polaris.Physical.Height"}}</label>
+              <input type="text" name="system.physical.height" value="{{system.physical.height}}" placeholder="1.75m"/>
+            </div>
+            <div class="physical-group">
+              <label>{{localize "Polaris.Physical.Weight"}}</label>
+              <input type="text" name="system.physical.weight" value="{{system.physical.weight}}" placeholder="70kg"/>
+            </div>
+          </div>
+          
+          <div class="physical-row">
+            <div class="physical-group">
+              <label>{{localize "Polaris.Physical.Skin"}}</label>
+              <input type="text" name="system.physical.skin" value="{{system.physical.skin}}"/>
+            </div>
+            <div class="physical-group">
+              <label>{{localize "Polaris.Physical.Corpulence"}}</label>
+              <input type="text" name="system.physical.corpulence" value="{{system.physical.corpulence}}"/>
+            </div>
+          </div>
+
+          <div class="physical-row">
+            <div class="physical-group">
+              <label>{{localize "Polaris.Physical.Hair"}}</label>
+              <input type="text" name="system.physical.hair" value="{{system.physical.hair}}"/>
+            </div>
+            <div class="physical-group">
+              <label>{{localize "Polaris.Physical.Eyes"}}</label>
+              <input type="text" name="system.physical.eyes" value="{{system.physical.eyes}}"/>
+            </div>
+          </div>
+
+          <div class="physical-row">
+            <div class="physical-group full-width">
+              <label>{{localize "Polaris.Physical.GeographicOrigin"}}</label>
+              <input type="text" name="system.details.geographicOrigin" value="{{system.details.geographicOrigin}}"/>
+            </div>
+          </div>
+
+          <div class="physical-row">
+            <div class="physical-group full-width">
+              <label>{{localize "Polaris.Physical.SocialOrigin"}}</label>
+              <input type="text" name="system.details.socialOrigin" value="{{system.details.socialOrigin}}"/>
+            </div>
+          </div>
+
+          <div class="physical-row">
+            <div class="physical-group full-width">
+              <label>{{localize "Polaris.Physical.BasicTraining"}}</label>
+              <input type="text" name="system.details.basicTraining" value="{{system.details.basicTraining}}"/>
+            </div>
+          </div>
+
+          <div class="physical-row">
+            <div class="physical-group full-width">
+              <label>{{localize "Polaris.Physical.HigherEducation"}}</label>
+              <input type="text" name="system.details.higherEducation" value="{{system.details.higherEducation}}"/>
+            </div>
+          </div>
+
+          <div class="physical-row">
+            <div class="physical-group full-width">
+              <label>{{localize "Polaris.Physical.DistinguishingMarks"}}</label>
+              <textarea name="system.physical.distinguishingMarks" rows="3">{{system.physical.distinguishingMarks}}</textarea>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     {{!-- Items Tab --}}
@@ -300,7 +448,7 @@
     </div>
 
     {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
+    <div class="tab biography" data-group="primary" data-tab="biography">
       {{editor enrichedBiography target="system.biography" engine="prosemirror" button=true editable=editable}}
     </div>
 

@@ -151,5 +151,62 @@
       "feature": "Feature",
       "spell": "Spell"
     }
-  }
+  },
+    "Character": {
+      "Name": "Character Name",
+      "Archetype": "Archetype",
+      "ArchetypePlaceholder": "e.g., Soldier, Scientist, Explorer",
+      "GeneticType": "Genetic Type",
+      "GeneticTypePlaceholder": "e.g., Pure Human, Mutant, Hybrid",
+      "Age": "Age",
+      "Sex": "Sex",
+      "Fertility": "Fertility",
+      "Fertile": "Fertile",
+      "Sterile": "Sterile"
+    },
+    "Attributes": {
+      "Attribute": "Attribute",
+      "BaseLevel": "Base Level",
+      "GeneticModifier": "Genetic Modifier",
+      "CreationPoints": "Creation Points",
+      "CurrentLevel": "Current Level",
+      "NaturalAptitude": "Natural Aptitude",
+      "Chance": "Chance"
+    },
+    "SecondaryAttributes": {
+      "Title": "Secondary Attributes"
+    },
+    "Skills": {
+      "Title": "Skills & Competences",
+      "Column1": "Competences",
+      "Column2": "Competences",
+      "Skill": "Skill",
+      "Attr": "Attr.",
+      "Base": "Base",
+      "Mod": "Mod.",
+      "Global": "Global",
+      "SkillName": "Skill name..."
+    },
+    "Physical": {
+      "Height": "Height",
+      "Weight": "Weight",
+      "Skin": "Skin",
+      "Corpulence": "Build",
+      "Hair": "Hair",
+      "Eyes": "Eyes",
+      "GeographicOrigin": "Geographic Origin",
+      "SocialOrigin": "Social Origin",
+      "BasicTraining": "Basic Training",
+      "HigherEducation": "Higher Education",
+      "DistinguishingMarks": "Distinguishing Marks"
+    },
+    "Tabs": {
+      "Attributes": "Attributes",
+      "Skills": "Skills",
+      "Physical": "Physical",
+      "Items": "Items",
+      "Spells": "Spells",
+      "Biography": "Biography",
+      "Effects": "Effects"
+    }
 }
