@@ -125,6 +125,14 @@ export default class PolarisCharacter extends PolarisActorBase {
       return skills;
     }});
 
+    // Iterate over ability names and create a new SchemaField for each.
+    schema.abilities = new fields.SchemaField(Object.keys(CONFIG.Polaris.abilities).reduce((obj, ability) => {
+      obj[ability] = new fields.SchemaField({
+        value: new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
+      });
+      return obj;
+    }, {}));
+
     return schema;
   }
 
@@ -175,6 +183,8 @@ export default class PolarisCharacter extends PolarisActorBase {
     return data;
   }
 }
+
+
 
 
 
